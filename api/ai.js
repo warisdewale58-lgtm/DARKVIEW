@@ -10,7 +10,7 @@ module.exports = handler(async ({ pw, input }) => {
     method: 'POST',
     headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
     body: JSON.stringify({
-      model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-5-5',
+      model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5',
       max_tokens: 4000,
       messages: [{ role: 'user', content: input }],
     }),

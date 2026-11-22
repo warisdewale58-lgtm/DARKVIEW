@@ -2,7 +2,7 @@ const crypto = require('crypto');
 
 const SALT = 'dv-admin:';
 const DEFAULT_HASH = '91f62e00965c2e0dcd5365c4ae6e0c533cbabbd1d7f75f00fe9ba638f011a860'; // default password, change it in Settings
-const REPO = () => process.env.GITHUB_REPO || 'Waris33-3/DARKVIEW';
+const REPO = () => process.env.GITHUB_REPO || 'warisdewale58-lgtm/DARKVIEW';
 const BRANCH = () => process.env.GITHUB_BRANCH || 'main';
 
 const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
@@ -34,7 +34,8 @@ function httpErr(status, code, error) {
 // Reads data.json from GitHub (the source of truth). Returns {data, sha}.
 async function readData() {
   const r = await gh('data.json');
-  if (!r.ok) throw httpErr(502, 'github_read', 'Could not read data.json from GitHub (' + r.status + ').');
+  if (r.status === 404) throw httpErr(502, 'github_read', 'GitHub cannot find ' + REPO() + ' on branch ' + BRANCH() + '. Set GITHUB_REPO to the owner/repo of this site and GITHUB_TOKEN with Contents read/write.');
+  if (!r.ok) throw httpErr(502, 'github_read', 'Could not read data.json from ' + REPO() + ' (' + r.status + '). Check GITHUB_TOKEN has Contents read/write.');
   const j = await r.json();
   const data = JSON.parse(Buffer.from(j.content, 'base64').toString('utf8'));
   return { data, sha: j.sha };
@@ -47,7 +48,7 @@ async function putFile(path, contentBuf, message, sha) {
   if (!r.ok) {
     const t = await r.text();
     if (r.status === 409 || r.status === 422) throw httpErr(409, 'conflict', 'The site changed while you were editing. Reload the page and try again.');
-    throw httpErr(502, 'github_write', 'GitHub refused the save (' + r.status + '). Check the token has Contents read/write. ' + t.slice(0, 120));
+    throw httpErr(502, 'github_write', 'GitHub refused the save to ' + REPO() + ' (' + r.status + '). Check the token has Contents read/write. ' + t.slice(0, 120));
   }
   return r.json();
 }
