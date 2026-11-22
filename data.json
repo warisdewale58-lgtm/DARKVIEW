@@ -1,0 +1,357 @@
+{
+ "settings": {
+  "name": "Dark View",
+  "announce": "Free delivery in Abuja on orders over ₦100,000 · Order and pay on the website",
+  "heroEyebrow": "Abuja · Nigeria · New season drop",
+  "heroTitle": "See it from the *dark* side.",
+  "heroLead": "Dark View is an Abuja clothing brand built on heavyweight fabric, clean cuts and a quiet palette. Hoodies, tees, trousers, jackets and caps made to be worn hard.",
+  "bKicker": "Dark View • Luxury • Nigeria",
+  "bTitle": "Welcome to Dark View.",
+  "bBadge": "",
+  "bCta2": "View Tracksuit",
+  "bCta2Q": "tracksuit",
+  "bPerks": "Pay on Delivery • 7-Day Returns • Sizes S – XXL",
+  "tagline": "Nigeria • Streetwear",
+  "mono": "DV",
+  "bSub": "Luxury, neat and premium — tracksuits, tees and vests, delivered in Abuja.",
+  "bCta": "Enter Shop — Shop The Drop",
+  "sign": "DARK VIEW",
+  "video": "",
+  "storyH": "Made for people who move at night.",
+  "story1": "Dark View started in Gwagwalada, Abuja, with one idea: clothing that looks sharp in low light and holds up in daily life. We keep the colours deep, the fabric heavy and the fit easy.",
+  "story2": "Every drop is small. When a piece sells out, it is gone until the next run. Follow us on Instagram and TikTok to see what lands next.",
+  "waNum": "234911461782",
+  "phone": "0911 461 782",
+  "email": "darkviewbrand@gmail.com",
+  "address": "Gwako Junction, Gwagwalada, Abuja",
+  "hours": "Mon to Sat, 9am to 7pm",
+  "ig": "darkviewclothingbrand",
+  "tt": "dark_view1",
+  "yt": "@DarkViewClothingBrand",
+  "bankName": "Opay",
+  "acctNum": "9114601782",
+  "acctName": "Godswill ime Effanga",
+  "promoCode": "DARKVIEW10",
+  "promoPct": 10,
+  "adminHash": "91f62e00965c2e0dcd5365c4ae6e0c533cbabbd1d7f75f00fe9ba638f011a860",
+  "theme": {},
+  "customCss": ""
+ },
+ "categories": [
+  "Tracksuits",
+  "Tees & Vests",
+  "Shorts",
+  "Accessories"
+ ],
+ "colors": {
+  "Black": "#17181d",
+  "Charcoal": "#3b3f49",
+  "Slate": "#4d5565",
+  "Wine": "#552332",
+  "Olive": "#464a35",
+  "Bone": "#d9d6cb",
+  "Navy": "#1f2a44",
+  "red": "#c92626",
+  "blue": "#0240f7",
+  "brown": "#2c2020",
+  "ash": "#a8a8a8"
+ },
+ "products": [
+  {
+   "id": 1,
+   "n": "basketball jersery tank top",
+   "c": "Tees & Vests",
+   "t": "tee",
+   "p": 20000,
+   "o": 30000,
+   "cl": [
+    "Black",
+    "Bone"
+   ],
+   "s": [
+    "L"
+   ],
+   "out": [],
+   "b": "New",
+   "d": "men tank top basket  jersery",
+   "stock": 24,
+   "img": "/images/e1335b989e44e735cd2699d3018e8465.jpg",
+   "hidden": false,
+   "featured": true,
+   "imgs": [
+    "/images/e1335b989e44e735cd2699d3018e8465.jpg"
+   ],
+   "ci": {
+    "Black": "/images/388470b95de467a8847243b316eb29a5.jpg",
+    "Bone": "/images/48430a445dc0d86b6ab2f6804a3c6d36.jpg"
+   }
+  },
+  {
+   "id": 2,
+   "n": "Ribbed Racerback Tank Top Girls",
+   "c": "Tees & Vests",
+   "t": "tee",
+   "p": 20000,
+   "cl": [
+    "Black",
+    "Bone"
+   ],
+   "s": [
+    "L"
+   ],
+   "b": "Best seller",
+   "d": "",
+   "o": 0,
+   "out": [],
+   "stock": 18,
+   "img": "/images/23d476ce90f152eaf6965f66aa9e7922.jpg",
+   "hidden": false,
+   "featured": false,
+   "imgs": [
+    "/images/23d476ce90f152eaf6965f66aa9e7922.jpg"
+   ],
+   "ci": {
+    "Black": "/images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg",
+    "Bone": "/images/0b8f5d275e1335f46669b74f892d9342.jpg"
+   }
+  },
+  {
+   "id": 3,
+   "n": "Velocity tracksuit set unisex",
+   "c": "Tracksuits",
+   "t": "hoodie2",
+   "p": 80000,
+   "cl": [
+    "red",
+    "blue"
+   ],
+   "s": [
+    "L"
+   ],
+   "d": "",
+   "o": 0,
+   "out": [],
+   "b": "New",
+   "stock": 12,
+   "img": "/images/7947dfa8456536be349835a7cef14d5e.jpg",
+   "hidden": false,
+   "featured": false,
+   "imgs": [
+    "/images/7947dfa8456536be349835a7cef14d5e.jpg"
+   ],
+   "ci": {
+    "red": "/images/650ed3f71654085b91cfaeb291f11fcb.jpg",
+    "blue": "/images/0b57fa9921352100e897cd3fa3ab0219.jpg"
+   }
+  },
+  {
+   "id": 4,
+   "n": "Angelic chaos sleeveless t shirt",
+   "c": "Tees & Vests",
+   "t": "tee",
+   "p": 30000,
+   "cl": [
+    "Black"
+   ],
+   "s": [
+    "L"
+   ],
+   "d": "",
+   "o": 0,
+   "out": [],
+   "b": "New",
+   "stock": 60,
+   "img": "/images/f9acf5d4bbdd10d25cc124bc10140301.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 5,
+   "n": "Oversized sweat short",
+   "c": "Shorts",
+   "t": "shorts",
+   "p": 50000,
+   "o": 0,
+   "cl": [
+    "Black",
+    "brown",
+    "ash"
+   ],
+   "s": [
+    "M",
+    "L"
+   ],
+   "b": "Sale",
+   "d": "",
+   "out": [],
+   "stock": 40,
+   "img": "/images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 6,
+   "n": "Fire & flame Graphic T-shirt unisex",
+   "c": "Tees & Vests",
+   "t": "tee",
+   "p": 35000,
+   "cl": [
+    "Black"
+   ],
+   "s": [
+    "L"
+   ],
+   "out": [],
+   "d": "",
+   "o": 0,
+   "b": "New",
+   "stock": 20,
+   "img": "/images/1d88fb3e4ed5bb5b499a721fbd9abc3b.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 7,
+   "n": "Stone Graphic Oversized T-Shirt – Unisex",
+   "c": "Tees & Vests",
+   "t": "tee",
+   "p": 25000,
+   "cl": [
+    "Black"
+   ],
+   "s": [
+    "L"
+   ],
+   "b": "New",
+   "d": "Relaxed straight cargo with deep side pockets and a drawcord waist.",
+   "o": 0,
+   "out": [],
+   "stock": 16,
+   "img": "/images/f2ca120e031aff3039d1bf2c71c5fb9e.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 8,
+   "n": "Essential Sweat Short unisex",
+   "c": "Shorts",
+   "t": "shorts",
+   "p": 19972,
+   "cl": [
+    "Black"
+   ],
+   "s": [
+    "M",
+    "L"
+   ],
+   "d": "",
+   "o": 0,
+   "out": [],
+   "b": "",
+   "stock": 30,
+   "img": "/images/1c8036e2e37185766288a92bb8b87da1.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 9,
+   "n": "Velocity track jacket",
+   "c": "Tracksuits",
+   "t": "jacket",
+   "p": 44975,
+   "cl": [
+    "red",
+    "blue"
+   ],
+   "s": [
+    "L"
+   ],
+   "d": "",
+   "o": 0,
+   "out": [],
+   "b": "New",
+   "stock": 14,
+   "img": "/images/8e60b6c4f85181e87f2609d081297f7d.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 10,
+   "n": "Velocity track pants",
+   "c": "Tracksuits",
+   "t": "pants",
+   "p": 45000,
+   "o": 0,
+   "cl": [
+    "red",
+    "blue"
+   ],
+   "s": [
+    "L"
+   ],
+   "b": "New",
+   "d": "",
+   "out": [],
+   "stock": 8,
+   "img": "/images/b9ee441e635d29665f3be10c5f8d4f7c.jpg",
+   "hidden": false,
+   "featured": false
+  },
+  {
+   "id": 11,
+   "n": "Dark View Cap",
+   "c": "Accessories",
+   "t": "cap",
+   "p": 12000,
+   "cl": [
+    "Black",
+    "Charcoal",
+    "Bone"
+   ],
+   "s": [
+    "One size"
+   ],
+   "d": "Six-panel cotton cap with an adjustable strap and embroidered mark.",
+   "o": 0,
+   "out": [],
+   "b": "",
+   "stock": 35,
+   "img": "",
+   "hidden": true,
+   "featured": false
+  },
+  {
+   "id": 12,
+   "n": "Everyday Tote",
+   "c": "Accessories",
+   "t": "tote",
+   "p": 14000,
+   "cl": [
+    "Black",
+    "Bone"
+   ],
+   "s": [
+    "One size"
+   ],
+   "d": "Thick canvas tote with an inner pocket. Carries a laptop and a change of clothes.",
+   "o": 0,
+   "out": [],
+   "b": "",
+   "stock": 20,
+   "img": "",
+   "hidden": true,
+   "featured": false
+  }
+ ],
+ "zones": [
+  {
+   "id": "abuja",
+   "name": "Abuja (FCT)",
+   "fee": 2500,
+   "freeOver": 100000,
+   "eta": "Same or next day",
+   "pod": true,
+   "on": true
+  }
+ ]
+}

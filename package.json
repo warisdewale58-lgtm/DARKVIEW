@@ -1,0 +1,7 @@
+{
+  "name": "dark-view-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dark View clothing store (static site + admin API)",
+  "engines": { "node": ">=18" }
+}
