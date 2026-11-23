@@ -22,20 +22,24 @@ with open("data.json") as f:
 
 S = D["settings"]
 S.update({
-    "heroEyebrow": "Abuja streetwear. Small drops.",
-    "heroTitle": "Made for people who move at *night*.",
-    "heroLead": "Heavy fabric, clean cuts, deep colours. Tracksuits, tees and shorts made in small runs and delivered in Abuja.",
-    "bKicker": "New season drop",
-    "bTitle": "Wear the *dark*.",
-    "bBadge": "New drop live",
-    "bSub": "Heavyweight streetwear from Abuja. Small runs, deep colours, no restocks.",
-    "bCta": "Shop the drop",
+    "tagline": "Gwagwalada, Abuja",
+    "bKicker": "New drop",
+    "bTitle": "Everyday *uniform*.",
+    "bBadge": "Pay on delivery",
+    "bSub": "Track sets, tees, vests and shorts in heavy cotton. Delivered across Abuja, with pay on delivery available.",
+    "bCta": "Shop all pieces",
     "bCta2": "View tracksuits",
     "bCta2Q": "velocity",
-    "bPerks": "Pay on delivery in Abuja. 7-day exchanges. Sizes S to XXL.",
+    "bPerks": "7-day exchange · Sizes S to XXL · Delivered in Abuja",
+    "storyH": "A small studio in Gwagwalada.",
+    "story1": "Dark View is a streetwear label based in Gwagwalada, Abuja. We make tracksuits, tees, vests and shorts in small batches and sell them directly from our studio.",
+    "story2": "Because runs are short, sizes sell out and don't always come back. To see what's next, follow us on Instagram or send us a message on WhatsApp.",
+    "heroEyebrow": "Streetwear from Gwagwalada, Abuja.",
+    "heroTitle": "Tracksuits, tees, vests and shorts.",
+    "heroLead": "Made in small batches in Abuja. Delivered across the city, paid by transfer or on delivery.",
     "heroImg": RED_SET,
     "heroImgAlt": "Velocity tracksuit set in black and red",
-    "announce": "Free delivery in Abuja on orders over ₦100,000. Order and pay on the website.",
+    "announce": "Delivery across Abuja. Pay by bank transfer or on delivery.",
 })
 
 # Colour names: consistent capitalisation, hex values kept.

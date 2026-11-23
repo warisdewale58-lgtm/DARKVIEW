@@ -9,9 +9,10 @@
   --line:oklch(30% 0.008 265);
   --rule:oklch(23% 0.007 265);
   --text:oklch(95% 0.004 265);
-  --mute:oklch(71% 0.01 265);
+  --mute:oklch(83% 0.008 265);
   --brass:oklch(64% 0.21 27);
   --brass-d:oklch(56% 0.2 27);
+  --brass-l:oklch(74% 0.16 27);
   --ok:oklch(76% 0.14 160);
   --bad:oklch(66% 0.19 25);
   --accent-ink:oklch(97% 0.005 265);
@@ -47,7 +48,7 @@ h1{max-width:20ch}h2{max-width:30ch}h3{max-width:40ch}
 p{margin:0;text-wrap:pretty}
 ::selection{background:var(--brass);color:var(--accent-ink)}
 .wrap{max-width:var(--wrap);margin:0 auto}
-.eyebrow{font-family:var(--f-mono);font-size:12px;color:var(--mute);display:block;margin-bottom:var(--space-sm);letter-spacing:.08em}
+.eyebrow{font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--mute);display:block;margin-bottom:var(--space-sm);letter-spacing:.05em}
 /* buttons: pills, pressable */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-xs);min-height:50px;padding:0 28px;border-radius:var(--r-pill);font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--text);background:var(--text);color:var(--ink);transition:transform var(--dur-micro) var(--ease-out),background-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),box-shadow var(--dur-short) var(--ease-out)}
 .btn:hover{background:var(--brass);border-color:var(--brass);color:var(--accent-ink);box-shadow:0 6px 20px oklch(64% 0.21 27 / .3)}
@@ -57,15 +58,15 @@ p{margin:0;text-wrap:pretty}
 .btn.block{width:100%}
 .btn[disabled]{opacity:.55;cursor:not-allowed;pointer-events:none}
 /* announcement + glass header */
-.ann{background:var(--panel);color:var(--mute);font-size:13px;text-align:center;padding:9px var(--space-md)}
+.ann{background:var(--panel);color:oklch(88% 0.006 265);font-size:14px;text-align:center;padding:10px var(--space-md)}
 header.dvh{position:sticky;top:0;z-index:200;background:oklch(13% 0.006 265 / .72);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border-bottom:1px solid oklch(95% 0.004 265 / .07);margin:0 calc(-1*max(20px,env(safe-area-inset-left,0px)));padding:0 max(20px,env(safe-area-inset-left,0px))}
 .dvh-in{display:flex;align-items:center;gap:var(--space-md);height:72px;max-width:var(--wrap);margin:0 auto}
 .brand{display:flex;align-items:center;gap:var(--space-sm);flex:none}
 .mono{width:40px;height:40px;border:1.5px solid var(--text);border-radius:var(--r-sm);display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:14px;letter-spacing:.02em;color:var(--text)}
 .bt{display:grid;line-height:1.15}
 .bt b{font-family:var(--f-display);font-size:19px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
-.bt small{font-size:11px;color:var(--mute);margin-top:2px}
-.dvh nav.main{display:flex;gap:var(--space-lg);margin-left:var(--space-lg);font-size:14px;font-weight:500;color:var(--mute)}
+.bt small{font-size:12px;color:var(--mute);margin-top:2px}
+.dvh nav.main{display:flex;gap:var(--space-lg);margin-left:var(--space-lg);font-size:15px;font-weight:500;color:oklch(86% 0.006 265)}
 .dvh nav.main a{position:relative;padding:6px 0;transition:color var(--dur-micro) var(--ease-out)}
 .dvh nav.main a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform var(--dur-short) var(--expo)}
 .dvh nav.main a:hover{color:var(--text)}
@@ -96,24 +97,24 @@ header.dvh{position:sticky;top:0;z-index:200;background:oklch(13% 0.006 265 / .7
 .dv-hero .hero-media img{animation:kenburns 28s var(--ease-out) infinite alternate}
 @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09) translateY(-1.5%)}}
 .dv-hero video{position:absolute;inset:0}
-.h-shade{position:absolute;inset:0;background:linear-gradient(0deg,oklch(11% 0.006 265 / .94) 0%,oklch(11% 0.006 265 / .5) 40%,oklch(11% 0.006 265 / .12) 72%),linear-gradient(90deg,oklch(11% 0.006 265 / .5) 0%,oklch(11% 0.006 265 / 0) 55%)}
+.h-shade{position:absolute;inset:0;background:linear-gradient(0deg,oklch(10% 0.006 265 / .97) 0%,oklch(10% 0.006 265 / .78) 30%,oklch(10% 0.006 265 / .42) 58%,oklch(10% 0.006 265 / .1) 80%),linear-gradient(90deg,oklch(10% 0.006 265 / .55) 0%,oklch(10% 0.006 265 / 0) 55%)}
 .h-top{position:absolute;top:var(--space-lg);left:0;right:0;max-width:var(--wrap);margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px));display:flex;justify-content:space-between;gap:var(--space-sm)}
-.pillx{display:inline-flex;align-items:center;gap:var(--space-xs);height:36px;padding:0 var(--space-md);border-radius:var(--r-pill);border:1px solid oklch(95% 0.004 265 / .22);background:oklch(13% 0.006 265 / .5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-family:var(--f-mono);font-size:12px;color:var(--text)}
+.pillx{display:inline-flex;align-items:center;gap:var(--space-xs);height:36px;padding:0 var(--space-md);border-radius:var(--r-pill);border:1px solid oklch(95% 0.004 265 / .22);background:oklch(13% 0.006 265 / .5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-family:var(--f-mono);font-size:13px;color:var(--text)}
 .pillx.tap{transition:border-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .pillx.tap:hover{border-color:var(--brass);color:var(--brass)}
 .pillx.tap:active{transform:scale(.96)}
 .h-copy{position:relative;width:100%;max-width:var(--wrap);margin:0 auto;padding:var(--space-3xl) max(20px,env(safe-area-inset-left,0px)) var(--space-2xl);display:grid;gap:var(--space-md);justify-items:start}
-.h-copy .eyebrow{color:var(--brass);margin:0}
+.h-copy .eyebrow{color:var(--brass-l);margin:0;text-shadow:0 1px 10px oklch(8% 0 0 / .6)}
 .h-copy h1{font-size:clamp(52px,8.5vw,124px);font-weight:900;line-height:.95;letter-spacing:-.01em;max-width:11ch}
 .h-copy h1 span{color:var(--brass)}
-.h-copy p{max-width:46ch;color:oklch(89% 0.006 265);font-size:clamp(16px,1.5vw,18px)}
+.h-copy p{max-width:46ch;color:oklch(93% 0.006 265);font-size:clamp(16px,1.5vw,18px);text-shadow:0 1px 14px oklch(8% 0 0 / .55)}
 .h-cta{display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-xs)}
 .btn2{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 30px;border-radius:var(--r-pill);border:1px solid oklch(95% 0.004 265 / .4);font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--text);background:oklch(13% 0.006 265 / .35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background-color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .btn2:hover{border-color:var(--text);background:oklch(13% 0.006 265 / .6)}
 .btn2:active{transform:scale(.96)}
 .btn2.pri{background:var(--text);border-color:var(--text);color:var(--ink)}
 .btn2.pri:hover{background:var(--brass);border-color:var(--brass);color:var(--accent-ink)}
-.h-perks{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+.h-perks{font-family:var(--f-mono);font-size:13px;font-weight:700;color:oklch(88% 0.006 265);text-shadow:0 1px 10px oklch(8% 0 0 / .6)}
 /* entrance sequence (armed by .play from JS so it replays on remount) */
 .dv-hero .hero-media{opacity:0;transform:scale(1.06)}
 .dv-hero.play .hero-media{opacity:1;transform:scale(1);transition:opacity 1.4s var(--ease-out),transform 1.8s var(--expo)}
@@ -129,15 +130,15 @@ header.dvh{position:sticky;top:0;z-index:200;background:oklch(13% 0.006 265 / .7
 .ticker{overflow:hidden;border-bottom:1px solid var(--rule);padding:14px 0;margin:0 calc(-1*max(20px,env(safe-area-inset-left,0px)));user-select:none}
 .tk{display:flex;gap:0;width:max-content;animation:tk 32s linear infinite}
 .ticker:hover .tk{animation-play-state:paused}
-.tk span{font-family:var(--f-display);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);white-space:nowrap;padding:0 18px;display:flex;align-items:center;gap:36px}
+.tk span{font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:oklch(84% 0.006 265);white-space:nowrap;padding:0 18px;display:flex;align-items:center;gap:36px}
 .tk span::after{content:"✦";color:var(--brass);font-size:11px}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* trust: soft panels, no scaffolding lines */
 .trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-sm);max-width:var(--wrap);margin:var(--space-lg) auto 0}
 .trust>div{padding:var(--space-md) var(--space-lg);display:flex;gap:var(--space-sm);align-items:center;min-width:0;background:var(--panel);border-radius:var(--r-md)}
 .trust svg{width:24px;height:24px;stroke:var(--brass);fill:none;stroke-width:1.5;flex:none}
-.trust b{display:block;font-size:14px;font-weight:600}
-.trust small{color:var(--mute);font-size:13px;display:block}
+.trust b{display:block;font-size:15px;font-weight:600}
+.trust small{color:var(--mute);font-size:14px;display:block}
 /* sections */
 section{max-width:var(--wrap);margin:0 auto;padding-block:var(--space-3xl) 0}
 .head{display:flex;justify-content:space-between;align-items:end;gap:var(--space-lg);flex-wrap:wrap;margin-bottom:var(--space-xl)}
@@ -156,24 +157,24 @@ section{max-width:var(--wrap);margin:0 auto;padding-block:var(--space-3xl) 0}
 /* shop */
 .tools{display:grid;grid-template-columns:repeat(6,auto);gap:var(--space-sm);align-items:center;margin-bottom:var(--space-lg)}
 .chips{display:flex;gap:var(--space-xs);flex-wrap:wrap;grid-column:1/-1}
-.chip{padding:10px 20px;border:1px solid var(--line);border-radius:var(--r-pill);font-size:13px;font-weight:600;color:var(--mute);transition:color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
+.chip{padding:11px 20px;border:1px solid var(--line);border-radius:var(--r-pill);font-size:14px;font-weight:600;color:var(--mute);transition:color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .chip:hover{border-color:var(--text);color:var(--text)}
 .chip:active{transform:scale(.95)}
 .chip.on{background:var(--text);border-color:var(--text);color:var(--ink)}
-.tools label{font-size:13px;color:var(--mute);display:flex;gap:var(--space-xs);align-items:center}
+.tools label{font-size:14px;color:var(--mute);display:flex;gap:var(--space-xs);align-items:center}
 .tools select{width:auto;padding:9px 12px;border-radius:var(--r-pill)}
-.count{color:var(--mute);font-size:13px;margin-left:auto;font-family:var(--f-mono)}
+.count{color:var(--mute);font-size:14px;margin-left:auto;font-family:var(--f-mono)}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-xl) var(--space-md)}
 .card{display:flex;flex-direction:column;min-width:0;transition:transform var(--dur-short) var(--expo)}
 .card:hover{transform:translateY(-6px)}
-.card .pic{position:relative;aspect-ratio:4/5;background:var(--panel);cursor:pointer;overflow:hidden;border-radius:var(--r-lg);transition:box-shadow var(--dur-short) var(--ease-out)}
+.card .pic{position:relative;aspect-ratio:4/5;background:oklch(25% 0.006 265);cursor:pointer;overflow:hidden;border-radius:var(--r-lg);transition:box-shadow var(--dur-short) var(--ease-out)}
 .card:hover .pic{box-shadow:var(--shadow-2)}
 .card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity var(--dur-long) var(--ease-out),transform 1.1s var(--expo)}
 .card .pic img.alt{opacity:0}
 .card:hover .pic img.main{transform:scale(1.06)}
 .card:hover .pic img.alt{opacity:1;transform:scale(1.06)}
 .card .pic svg{position:absolute;inset:0;margin:auto;width:70%}
-.pill{position:absolute;top:var(--space-sm);left:var(--space-sm);z-index:2;font-family:var(--f-mono);font-size:11px;padding:6px 12px;border-radius:var(--r-pill);background:var(--text);color:var(--ink)}
+.pill{position:absolute;top:var(--space-sm);left:var(--space-sm);z-index:2;font-family:var(--f-mono);font-size:12px;padding:7px 13px;border-radius:var(--r-pill);background:var(--text);color:var(--ink)}
 .pill.dark{background:oklch(13% 0.006 265 / .75);color:var(--text);border:1px solid var(--line);backdrop-filter:blur(8px)}
 .heart{position:absolute;top:var(--space-xs);right:var(--space-xs);z-index:2;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:oklch(13% 0.006 265 / .5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .heart:hover{background:oklch(13% 0.006 265 / .8)}
@@ -181,13 +182,13 @@ section{max-width:var(--wrap);margin:0 auto;padding-block:var(--space-3xl) 0}
 .heart svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:1.7;transition:fill var(--dur-micro),stroke var(--dur-micro)}
 .heart.on svg{fill:var(--brass);stroke:var(--brass)}
 .card .info{padding:var(--space-sm) var(--space-2xs) 0;display:flex;flex-direction:column;gap:var(--space-2xs);flex:1}
-.card .cat{font-size:12px;color:var(--mute)}
-.card h3{font-size:16px;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-weight:600;line-height:1.35}
-.price{display:flex;gap:var(--space-xs);align-items:baseline;font-weight:600;font-family:var(--f-mono);font-size:14px;font-variant-numeric:tabular-nums}
-.price s{color:var(--mute);font-weight:400;font-size:12px}
+.card .cat{font-size:13px;color:var(--mute)}
+.card h3{font-size:17px;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-weight:600;line-height:1.35}
+.price{display:flex;gap:var(--space-xs);align-items:baseline;font-weight:700;font-family:var(--f-mono);font-size:16px;font-variant-numeric:tabular-nums}
+.price s{color:var(--mute);font-weight:400;font-size:13px}
 .sw{display:flex;gap:6px;margin-top:var(--space-2xs)}
 .sw i{width:13px;height:13px;border-radius:50%;border:1px solid var(--line);display:inline-block}
-.card .add{margin-top:var(--space-sm);min-height:44px;font-size:12px;opacity:0;transform:translateY(6px);transition:opacity var(--dur-short) var(--ease-out),transform var(--dur-short) var(--expo),background-color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out)}
+.card .add{margin-top:var(--space-sm);min-height:46px;font-size:13px;opacity:0;transform:translateY(6px);transition:opacity var(--dur-short) var(--ease-out),transform var(--dur-short) var(--expo),background-color var(--dur-micro) var(--ease-out),border-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out)}
 .card:hover .add,.card:focus-within .add{opacity:1;transform:none}
 @media(hover:none){.card .add{opacity:1;transform:none}}
 .empty{grid-column:1/-1;text-align:center;padding:var(--space-2xl) var(--space-md);border:1px dashed var(--line);border-radius:var(--r-lg);color:var(--mute)}
@@ -198,18 +199,18 @@ section{max-width:var(--wrap);margin:0 auto;padding-block:var(--space-3xl) 0}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm)}
 .pillars>div{padding:var(--space-lg);background:var(--panel);border-radius:var(--r-md)}
 .pillars b{font-family:var(--f-display);font-size:16px;font-weight:700;text-transform:uppercase;display:block;margin-bottom:var(--space-2xs)}
-.pillars span{color:var(--mute);font-size:14px}
+.pillars span{color:var(--mute);font-size:15px}
 /* info + faq */
 .info3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-md)}
 .box{background:var(--panel);padding:var(--space-lg);border-radius:var(--r-lg)}
 .box h3{font-size:20px;margin:var(--space-2xs) 0 var(--space-md)}
-.box ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--mute);font-size:14px}
+.box ul{margin:0;padding:0;list-style:none;display:grid;gap:11px;color:oklch(83% 0.008 265);font-size:15px}
 .box li{padding-left:18px;position:relative}
 .box li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;border-radius:2px;background:var(--brass)}
 details{border-bottom:1px solid var(--rule);padding:var(--space-md) 0}
 details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:var(--space-md);font-size:16px}
 details summary::-webkit-details-marker{display:none}
-details summary::after{content:"+";color:var(--brass);font-size:20px;line-height:1;font-family:var(--f-mono);transition:transform var(--dur-short) var(--expo)}
+details summary::after{content:"+";color:var(--brass-l);font-size:22px;line-height:1;font-family:var(--f-mono);transition:transform var(--dur-short) var(--expo)}
 details[open] summary::after{content:"–"}
 details p{color:var(--mute);margin-top:var(--space-sm);max-width:70ch;font-size:15px}
 .faq{max-width:860px}
@@ -218,17 +219,17 @@ details p{color:var(--mute);margin-top:var(--space-sm);max-width:70ch;font-size:
 .crow{display:flex;gap:var(--space-sm);align-items:flex-start;padding:var(--space-md) 0;border-bottom:1px solid var(--rule);min-width:0}
 .crow:last-child{border:0}
 .crow svg{width:22px;height:22px;stroke:var(--brass);fill:none;stroke-width:1.5;flex:none;margin-top:2px}
-.crow small{display:block;color:var(--mute);font-size:12px}
+.crow small{display:block;color:var(--mute);font-size:13px}
 .crow b{overflow-wrap:anywhere;font-weight:600}
-.crow .cp{margin-left:auto;font-size:12px;color:var(--brass);flex:none;font-family:var(--f-mono)}
+.crow .cp{margin-left:auto;font-size:13px;color:var(--brass-l);flex:none;font-family:var(--f-mono);font-weight:700}
 form.msg{display:grid;gap:var(--space-sm)}
 /* newsletter + footer */
 .news{margin-top:var(--space-3xl);background:var(--panel);border-radius:var(--r-xl);padding:var(--space-xl);display:flex;gap:var(--space-lg);justify-content:space-between;align-items:center;flex-wrap:wrap;max-width:var(--wrap);margin-inline:auto}
 .news h2{font-size:clamp(24px,3.2vw,38px);font-weight:900}
 footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px,env(safe-area-inset-left,0px))) 0;padding:var(--space-2xl) max(20px,env(safe-area-inset-left,0px)) var(--space-lg);background:oklch(11.5% 0.006 265)}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:var(--space-xl);max-width:var(--wrap);margin:0 auto}
-.fgrid h4{font-size:13px;font-weight:600;color:var(--text);margin:0 0 var(--space-sm)}
-.fgrid a,.fgrid p{display:block;color:var(--mute);font-size:14px;margin-bottom:var(--space-xs);overflow-wrap:anywhere}
+.fgrid h4{font-size:14px;font-weight:600;color:var(--text);margin:0 0 var(--space-sm)}
+.fgrid a,.fgrid p{display:block;color:var(--mute);font-size:15px;margin-bottom:var(--space-xs);overflow-wrap:anywhere}
 .fgrid a{transition:color var(--dur-micro)}
 .fgrid a:hover{color:var(--text)}
 .logo{font-family:var(--f-display);font-weight:900;font-size:20px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
@@ -238,9 +239,9 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .social a{width:42px;height:42px;border:1px solid var(--line);border-radius:var(--r-pill);display:grid;place-items:center;margin:0;transition:border-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .social a:hover{border-color:var(--text);transform:translateY(-2px)}
 .social svg{width:18px;height:18px;fill:var(--text)}
-.legal{max-width:var(--wrap);margin:var(--space-xl) auto 0;padding-top:var(--space-lg);border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:var(--space-sm);flex-wrap:wrap;color:var(--mute);font-size:13px}
+.legal{max-width:var(--wrap);margin:var(--space-xl) auto 0;padding-top:var(--space-lg);border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:var(--space-sm);flex-wrap:wrap;color:var(--mute);font-size:14px}
 .pay{display:flex;gap:var(--space-xs);flex-wrap:wrap}
-.pay span{border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 12px;font-size:12px;font-family:var(--f-mono)}
+.pay span{border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;font-size:13px;font-family:var(--f-mono)}
 /* overlays: spring sheets */
 .scrim{position:fixed;inset:0;background:oklch(6% 0.005 265 / .6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:300;opacity:0;pointer-events:none;transition:opacity var(--dur-short) var(--ease-out)}
 .scrim.on{opacity:1;pointer-events:auto}
@@ -254,15 +255,15 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .line .th{aspect-ratio:1;background:var(--panel2);border-radius:var(--r-sm);display:grid;place-items:center;overflow:hidden}
 .line .th img{width:100%;height:100%;object-fit:cover}
 .line .th svg{width:80%}
-.line b{font-size:14px;display:block;font-weight:600}
-.line small{color:var(--mute);font-size:12px}
+.line b{font-size:15px;display:block;font-weight:600}
+.line small{color:var(--mute);font-size:13px}
 .qty{display:inline-flex;border:1px solid var(--line);border-radius:var(--r-pill);margin-top:var(--space-xs);overflow:hidden}
 .qty button{width:36px;height:36px;font-size:16px;transition:background-color var(--dur-micro) var(--ease-out)}
 .qty button:hover{background:var(--panel2)}
 .qty span{width:34px;display:grid;place-items:center;font-size:13px;font-family:var(--f-mono)}
 .rm{color:var(--mute);font-size:12px;text-align:right;font-family:var(--f-mono)}
 .rm:hover{color:var(--bad)}
-.sum{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);font-variant-numeric:tabular-nums}
+.sum{display:flex;justify-content:space-between;font-size:15px;color:oklch(83% 0.008 265);font-variant-numeric:tabular-nums}
 .sum.t{color:var(--text);font-weight:700;font-size:17px;font-family:var(--f-mono)}
 .promo{display:flex;gap:var(--space-xs)}
 .promo input{border-radius:var(--r-pill)}
@@ -276,13 +277,13 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .sheet .x:hover{background:var(--panel2)}
 .sheet .x:active{transform:scale(.9)}
 .pd{display:grid;grid-template-columns:1fr 1fr}
-.pd .pic{background:var(--panel2);display:grid;place-items:center;min-height:360px;position:relative;overflow:hidden;border-radius:var(--r-xl) 0 0 var(--r-xl)}
+.pd .pic{background:oklch(25% 0.006 265);display:grid;place-items:center;min-height:360px;position:relative;overflow:hidden;border-radius:var(--r-xl) 0 0 var(--r-xl)}
 .pd .pic img{width:100%;height:100%;object-fit:cover;display:block;animation:pd-img .7s var(--expo)}
 @keyframes pd-img{from{opacity:.4;transform:scale(1.04)}to{opacity:1;transform:none}}
 .pd .pic svg{width:72%}
 .pd .txt{padding:var(--space-xl) var(--space-lg);display:grid;gap:var(--space-md);align-content:start;min-width:0}
 .pd h2{font-size:28px}
-.opt label{display:block;font-size:13px;color:var(--mute);margin-bottom:var(--space-xs)}
+.opt label{display:block;font-size:14px;font-weight:600;color:var(--mute);margin-bottom:var(--space-xs)}
 .sizes,.colors{display:flex;gap:var(--space-xs);flex-wrap:wrap}
 .sz{min-width:48px;min-height:44px;padding:9px 14px;border:1px solid var(--line);border-radius:var(--r-sm);font-size:14px;font-weight:600;transition:border-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out),background-color var(--dur-micro) var(--ease-out),transform var(--dur-micro) var(--ease-out)}
 .sz:hover{border-color:var(--text)}
@@ -296,7 +297,7 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm)}
 .co{padding:var(--space-xl) var(--space-lg);display:grid;grid-template-columns:1.2fr 1fr;gap:var(--space-xl)}
 .co form{display:grid;gap:var(--space-sm);min-width:0}
-.co label{font-size:13px;color:var(--mute);display:block;margin-bottom:5px}
+.co label{font-size:14px;color:var(--mute);display:block;margin-bottom:5px}
 .co h2{font-size:26px;grid-column:1/-1}
 .radio{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--space-sm);cursor:pointer;font-size:14px;transition:border-color var(--dur-micro) var(--ease-out),background-color var(--dur-micro)}
 .radio input{width:auto;margin-top:3px;accent-color:var(--brass)}
@@ -307,7 +308,7 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .done .tick{width:64px;height:64px;border:2px solid var(--ok);border-radius:50%;display:grid;place-items:center;color:var(--ok);font-size:30px;animation:pop .6s var(--spring)}
 .done pre{background:var(--ink);border:1px solid var(--rule);border-radius:var(--r-md);padding:var(--space-sm);text-align:left;font-size:12px;white-space:pre-wrap;max-width:100%;color:var(--mute);margin:0;font-family:var(--f-mono)}
 .guide{padding:var(--space-lg);overflow-x:auto}
-.guide table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px;font-variant-numeric:tabular-nums}
+.guide table{border-collapse:collapse;width:100%;min-width:420px;font-size:15px;font-variant-numeric:tabular-nums}
 .guide th,.guide td{border-bottom:1px solid var(--rule);padding:10px 8px;text-align:left}
 .guide th{color:var(--mute);font-size:13px;font-weight:600}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px) scale(.95);background:var(--text);color:var(--ink);padding:13px 24px;border-radius:var(--r-pill);font-size:14px;font-weight:600;z-index:500;opacity:0;transition:opacity var(--dur-short) var(--ease-out),transform var(--dur-long) var(--spring);pointer-events:none;max-width:calc(100% - 32px);box-shadow:var(--shadow-2)}
@@ -332,7 +333,7 @@ footer{border-top:1px solid var(--rule);margin:var(--space-3xl) calc(-1*max(20px
 .acct .ar:last-child{border:0}
 .acct small{display:block;color:var(--mute);font-size:12px}
 .acct b{font-variant-numeric:tabular-nums;overflow-wrap:anywhere;font-family:var(--f-mono);font-weight:600}
-.acct .cp{color:var(--brass);font-size:12px;flex:none;font-family:var(--f-mono)}
+.acct .cp{color:var(--brass-l);font-size:13px;flex:none;font-family:var(--f-mono);font-weight:700}
 .steps{text-align:left;color:var(--mute);font-size:14px;margin:0;padding-left:20px;max-width:440px;display:grid;gap:6px}
 .steps b{color:var(--text)}
 /* fly-to-cart clone */
@@ -403,7 +404,7 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
 .a-m{position:fixed;z-index:650;left:50%;top:50%;transform:translate(-50%,-50%);width:min(760px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;background:var(--panel);border:1px solid var(--rule);border-radius:var(--r-lg);padding:var(--space-lg);display:none}
 .a-m.on,#adm .scrimx.on{display:block}
 .a-m h3{font-size:22px;margin-bottom:var(--space-md)}
-.a-note{color:var(--mute);font-size:13px}
+.a-note{color:var(--mute);font-size:14px}
 .a-note.err{color:var(--bad)}
 .thumb-up{display:flex;gap:var(--space-sm);align-items:center;flex-wrap:wrap}
 .thumb-up .pv{width:70px;height:70px;background:var(--panel2);border-radius:var(--r-sm);display:grid;place-items:center;overflow:hidden}
@@ -478,12 +479,12 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
   .h-copy h1{max-width:9ch}
   .btn2{min-height:48px;padding:0 22px;font-size:13px}
   .bag{padding:0 16px;height:40px}
-  .card h3{font-size:15px}
+  .card h3{font-size:16px}
   .pillars{grid-template-columns:1fr}
   .trust>div{padding:var(--space-sm) var(--space-md)}
-  .tk span{font-size:12px;letter-spacing:.1em}
+  .tk span{font-size:13px;letter-spacing:.08em}
 }
-@media(max-width:420px){.dvh #wishBtn{display:none}.pillx{font-size:11px;padding:0 12px}}
+@media(max-width:420px){.dvh #wishBtn{display:none}.pillx{font-size:12px;padding:0 12px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
@@ -510,7 +511,7 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
     <div class="h-cta"><a class="btn2 pri" href="#shop" data-cat="All">{{bCta}}</a><a class="btn2" href="#shop" data-sq="{{bCta2Q}}">{{bCta2}}</a></div>
     <div class="h-perks">{{bPerks}}</div></div>
 </div>
-<div class="ticker" aria-hidden="true"><div class="tk" id="tkRow"><span>Small drops</span><span>Heavy fabric</span><span>Clean cuts</span><span>Abuja made</span><span>No restocks</span><span>Pay on delivery</span></div></div>
+<div class="ticker" aria-hidden="true"><div class="tk" id="tkRow"><span>Delivery across Abuja</span><span>Bank transfer or pay on delivery</span><span>Sizes S to XXL</span><span>7-day exchange</span><span>Gwagwalada, Abuja</span><span>WhatsApp support</span></div></div>
 <div class="trust rv">
   <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b>{{zoneTitle}}</b><small>{{zoneSub}}</small></span></div>
   <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2-2v6h-6l2.2-2.2A5.5 5.5 0 1 0 17.5 14"/></svg><span><b>7-day exchange</b><small>Unworn, tags on</small></span></div>
@@ -545,10 +546,10 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
       <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn ghost" target="_blank" rel="noopener" href="https://instagram.com/{{ig}}">Instagram</a><a class="btn ghost" target="_blank" rel="noopener" href="https://tiktok.com/@{{tt}}">TikTok</a><a class="btn ghost" target="_blank" rel="noopener" href="https://youtube.com/{{yt}}">YouTube</a></div>
     </div>
     <div class="pillars rv" style="--i:1">
-      <div><b>Heavy fabric</b><span>Thick cotton and fleece that keeps its shape wash after wash.</span></div>
-      <div><b>Clean cuts</b><span>Relaxed, structured fits with no loud branding.</span></div>
-      <div><b>Small drops</b><span>Limited runs so pieces stay uncommon.</span></div>
-      <div><b>Local first</b><span>Designed, sold and delivered from Abuja.</span></div>
+      <div><b>Heavy cotton</b><span>Thick fabric that keeps its shape after washing.</span></div>
+      <div><b>Relaxed fits</b><span>Easy cuts with room to move, no loud logos.</span></div>
+      <div><b>Short runs</b><span>Made in small batches, so sizes sell out.</span></div>
+      <div><b>Based in Abuja</b><span>Designed, sold and delivered from Gwagwalada.</span></div>
     </div>
   </div>
 </section>
@@ -597,14 +598,14 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
 </section>
 
 <div class="news rv">
-  <div><h2>Hear about drops first</h2></div>
+  <div><h2>New pieces, straight to your phone</h2></div>
   <a class="btn" target="_blank" rel="noopener" href="https://wa.me/{{waNum}}?text=Please%20add%20me%20to%20the%20Dark%20View%20drop%20list.">Join the drop list</a>
 </div>
 </main>
 
 <footer>
   <div class="fgrid">
-    <div><div class="logo" style="margin-bottom:14px"><i></i>{{name}}</div><p>Premium streetwear from Abuja. Heavy fabric, clean cuts, small drops.</p>
+    <div><div class="logo" style="margin-bottom:14px"><i></i>{{name}}</div><p>Streetwear from Gwagwalada, Abuja. Tracksuits, tees, vests and shorts.</p>
       <div class="social">
         <a target="_blank" rel="noopener" href="https://instagram.com/{{ig}}" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></a>
         <a target="_blank" rel="noopener" href="https://tiktok.com/@{{tt}}" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16 3h-3v12.5a2.5 2.5 0 1 1-2.5-2.5c.3 0 .7 0 1 .2V10a5.5 5.5 0 1 0 4.5 5.4V9a6.7 6.7 0 0 0 4 1.3V7.3A4 4 0 0 1 16 3z"/></svg></a>
@@ -629,7 +630,7 @@ table.a-t{width:100%;border-collapse:collapse;min-width:760px;font-size:14px}
 <div class="modal" id="sg"><div class="sheet"><button class="x" data-close="sg" aria-label="Close">×</button><div class="guide"><h2 style="font-size:26px;margin:8px 0 16px">Find your fit</h2><table><tr><th>Size</th><th>Chest (in)</th><th>Length (in)</th><th>Waist (in)</th></tr><tr><td>S</td><td>36–38</td><td>26</td><td>28–30</td></tr><tr><td>M</td><td>38–40</td><td>27</td><td>30–32</td></tr><tr><td>L</td><td>40–42</td><td>28</td><td>32–34</td></tr><tr><td>XL</td><td>42–45</td><td>29</td><td>34–36</td></tr><tr><td>XXL</td><td>45–48</td><td>30</td><td>36–40</td></tr></table><p style="color:var(--mute);font-size:13px;margin-top:14px">Measurements are body sizes. Between sizes? Go up for a relaxed fit.</p></div></div></div>
 <div class="toast" id="toast" role="status"></div>
 </template>
-<script id="dv-data" type="application/json">{"settings": {"name": "Dark View", "announce": "Free delivery in Abuja on orders over ₦100,000. Order and pay on the website.", "heroEyebrow": "Abuja streetwear. Small drops.", "heroTitle": "Made for people who move at *night*.", "heroLead": "Heavy fabric, clean cuts, deep colours. Tracksuits, tees and shorts made in small runs and delivered in Abuja.", "bKicker": "New season drop", "bTitle": "Wear the *dark*.", "bBadge": "New drop live", "bCta2": "View tracksuits", "bCta2Q": "velocity", "bPerks": "Pay on delivery in Abuja. 7-day exchanges. Sizes S to XXL.", "tagline": "Nigeria • Streetwear", "mono": "DV", "bSub": "Heavyweight streetwear from Abuja. Small runs, deep colours, no restocks.", "bCta": "Shop the drop", "sign": "DARK VIEW", "video": "", "storyH": "Made for people who move at night.", "story1": "Dark View started in Gwagwalada, Abuja, with one idea: clothing that looks sharp in low light and holds up in daily life. We keep the colours deep, the fabric heavy and the fit easy.", "story2": "Every drop is small. When a piece sells out, it is gone until the next run. Follow us on Instagram and TikTok to see what lands next.", "waNum": "234911461782", "phone": "0911 461 782", "email": "darkviewbrand@gmail.com", "address": "Gwako Junction, Gwagwalada, Abuja", "hours": "Mon to Sat, 9am to 7pm", "ig": "darkviewclothingbrand", "tt": "dark_view1", "yt": "@DarkViewClothingBrand", "bankName": "Opay", "acctNum": "9114601782", "acctName": "Godswill ime Effanga", "promoCode": "DARKVIEW10", "promoPct": 10, "adminHash": "91f62e00965c2e0dcd5365c4ae6e0c533cbabbd1d7f75f00fe9ba638f011a860", "theme": {}, "customCss": "", "heroImg": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "heroImgAlt": "Velocity tracksuit set in black and red"}, "categories": ["Tracksuits", "Tees & Vests", "Shorts", "Accessories"], "colors": {"Black": "#17181d", "Charcoal": "#3b3f49", "Slate": "#4d5565", "Wine": "#552332", "Olive": "#464a35", "Bone": "#d9d6cb", "Navy": "#1f2a44", "Red": "#c92626", "Blue": "#0240f7", "Brown": "#2c2020", "Ash": "#a8a8a8"}, "products": [{"id": 1, "n": "Courtside Jersey Tank", "c": "Tees & Vests", "t": "tee", "p": 20000, "o": 30000, "cl": ["Black", "Bone"], "s": ["L"], "out": [], "b": "New", "d": "Basketball-cut tank in breathable mesh with contrast trim and the vertical Dark View print. Comes in black or bone.", "stock": 24, "img": "images/388470b95de467a8847243b316eb29a5.jpg", "hidden": false, "featured": true, "imgs": ["images/388470b95de467a8847243b316eb29a5.jpg", "images/48430a445dc0d86b6ab2f6804a3c6d36.jpg"], "ci": {"Black": "images/388470b95de467a8847243b316eb29a5.jpg", "Bone": "images/48430a445dc0d86b6ab2f6804a3c6d36.jpg"}}, {"id": 2, "n": "Racerback Rib Tank", "c": "Tees & Vests", "t": "tee", "p": 20000, "cl": ["Black", "Bone"], "s": ["L"], "b": "Best seller", "d": "Fitted ribbed racerback with the gothic chest print. Stretch cotton that holds its shape.", "o": 0, "out": [], "stock": 18, "img": "images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "hidden": false, "featured": false, "imgs": ["images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "images/0b8f5d275e1335f46669b74f892d9342.jpg"], "ci": {"Black": "images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "Bone": "images/0b8f5d275e1335f46669b74f892d9342.jpg"}}, {"id": 3, "n": "Velocity Tracksuit Set", "c": "Tracksuits", "t": "hoodie2", "p": 80000, "cl": ["Red", "Blue"], "s": ["L"], "d": "Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a set; the jacket and pants are also sold separately.", "o": 0, "out": [], "b": "New", "stock": 12, "img": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "hidden": false, "featured": true, "imgs": ["images/650ed3f71654085b91cfaeb291f11fcb.jpg", "images/0b57fa9921352100e897cd3fa3ab0219.jpg"], "ci": {"Red": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "Blue": "images/0b57fa9921352100e897cd3fa3ab0219.jpg"}}, {"id": 4, "n": "Angelic Chaos Muscle Tee", "c": "Tees & Vests", "t": "tee", "p": 30000, "cl": ["Black"], "s": ["L"], "d": "Sleeveless muscle tee with the cracked-statue and butterfly print across the chest. Heavy cotton, boxy cut.", "o": 0, "out": [], "b": "New", "stock": 60, "img": "/images/f9acf5d4bbdd10d25cc124bc10140301.jpg", "hidden": false, "featured": false, "imgs": ["images/f9acf5d4bbdd10d25cc124bc10140301.jpg"]}, {"id": 5, "n": "Oversized Sweat Shorts", "c": "Shorts", "t": "shorts", "p": 50000, "o": 0, "cl": ["Ash", "Black", "Brown"], "s": ["M", "L"], "b": "", "d": "Heavyweight fleece shorts with a raw hem, deep pockets and the wordmark across the front. Pictured in ash.", "out": [], "stock": 40, "img": "images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg", "hidden": false, "featured": false, "imgs": ["images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg"], "ci": {"Ash": "images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg"}}, {"id": 6, "n": "Aura Flame Tee", "c": "Tees & Vests", "t": "tee", "p": 35000, "cl": ["Black"], "s": ["L"], "out": [], "d": "Oversized black tee with the flame graphic: Wear Mind Set. Drop shoulders, heavy cotton.", "o": 0, "b": "New", "stock": 20, "img": "/images/1d88fb3e4ed5bb5b499a721fbd9abc3b.jpg", "hidden": false, "featured": false, "imgs": ["images/1d88fb3e4ed5bb5b499a721fbd9abc3b.jpg"]}, {"id": 7, "n": "Stone Wings Tee", "c": "Tees & Vests", "t": "tee", "p": 25000, "cl": ["Black"], "s": ["L"], "b": "New", "d": "Oversized tee with the mirrored chrome wings print and star mark. Heavy cotton, relaxed fit.", "o": 0, "out": [], "stock": 16, "img": "/images/f2ca120e031aff3039d1bf2c71c5fb9e.jpg", "hidden": false, "featured": false, "imgs": ["images/f2ca120e031aff3039d1bf2c71c5fb9e.jpg"]}, {"id": 8, "n": "Essential Sweat Shorts", "c": "Shorts", "t": "shorts", "p": 19972, "cl": ["Black"], "s": ["M", "L"], "d": "Clean fleece shorts with the embroidered DV mark. Elastic waist, sits above the knee.", "o": 0, "out": [], "b": "", "stock": 30, "img": "/images/1c8036e2e37185766288a92bb8b87da1.jpg", "hidden": false, "featured": false, "imgs": ["images/1c8036e2e37185766288a92bb8b87da1.jpg"]}, {"id": 9, "n": "Velocity Track Jacket", "c": "Tracksuits", "t": "jacket", "p": 44975, "cl": ["Red", "Blue"], "s": ["L"], "d": "Zip-front track jacket with curved contrast panels, stand collar and zip pockets. Pairs with the Velocity track pants. Pictured in blue.", "o": 0, "out": [], "b": "New", "stock": 14, "img": "images/8e60b6c4f85181e87f2609d081297f7d.jpg", "hidden": false, "featured": false, "imgs": ["images/8e60b6c4f85181e87f2609d081297f7d.jpg"], "ci": {"Blue": "images/8e60b6c4f85181e87f2609d081297f7d.jpg"}}, {"id": 10, "n": "Velocity Track Pants", "c": "Tracksuits", "t": "pants", "p": 45000, "o": 0, "cl": ["Red", "Blue"], "s": ["L"], "b": "New", "d": "Drawcord track pants with zip pockets and cuffed ankles. Pairs with the Velocity track jacket or buy the full set. Pictured in blue.", "out": [], "stock": 8, "img": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg", "hidden": false, "featured": false, "imgs": ["images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"], "ci": {"Blue": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"}}, {"id": 11, "n": "Dark View Cap", "c": "Accessories", "t": "cap", "p": 12000, "cl": ["Black", "Charcoal", "Bone"], "s": ["One size"], "d": "Six-panel cotton cap with an adjustable strap and embroidered mark.", "o": 0, "out": [], "b": "", "stock": 35, "img": "", "hidden": true, "featured": false}, {"id": 12, "n": "Everyday Tote", "c": "Accessories", "t": "tote", "p": 14000, "cl": ["Black", "Bone"], "s": ["One size"], "d": "Thick canvas tote with an inner pocket. Carries a laptop and a change of clothes.", "o": 0, "out": [], "b": "", "stock": 20, "img": "", "hidden": true, "featured": false}], "zones": [{"id": "abuja", "name": "Abuja (FCT)", "fee": 2500, "freeOver": 100000, "eta": "Same or next day", "pod": true, "on": true}]}</script>
+<script id="dv-data" type="application/json">{"settings": {"name": "Dark View", "announce": "Delivery across Abuja. Pay by bank transfer or on delivery.", "heroEyebrow": "Streetwear from Gwagwalada, Abuja.", "heroTitle": "Tracksuits, tees, vests and shorts.", "heroLead": "Made in small batches in Abuja. Delivered across the city, paid by transfer or on delivery.", "bKicker": "New drop", "bTitle": "Everyday *uniform*.", "bBadge": "Pay on delivery", "bCta2": "View tracksuits", "bCta2Q": "velocity", "bPerks": "7-day exchange · Sizes S to XXL · Delivered in Abuja", "tagline": "Gwagwalada, Abuja", "mono": "DV", "bSub": "Track sets, tees, vests and shorts in heavy cotton. Delivered across Abuja, with pay on delivery available.", "bCta": "Shop all pieces", "sign": "DARK VIEW", "video": "", "storyH": "A small studio in Gwagwalada.", "story1": "Dark View is a streetwear label based in Gwagwalada, Abuja. We make tracksuits, tees, vests and shorts in small batches and sell them directly from our studio.", "story2": "Because runs are short, sizes sell out and don't always come back. To see what's next, follow us on Instagram or send us a message on WhatsApp.", "waNum": "234911461782", "phone": "0911 461 782", "email": "darkviewbrand@gmail.com", "address": "Gwako Junction, Gwagwalada, Abuja", "hours": "Mon to Sat, 9am to 7pm", "ig": "darkviewclothingbrand", "tt": "dark_view1", "yt": "@DarkViewClothingBrand", "bankName": "Opay", "acctNum": "9114601782", "acctName": "Godswill ime Effanga", "promoCode": "DARKVIEW10", "promoPct": 10, "adminHash": "91f62e00965c2e0dcd5365c4ae6e0c533cbabbd1d7f75f00fe9ba638f011a860", "theme": {}, "customCss": "", "heroImg": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "heroImgAlt": "Velocity tracksuit set in black and red"}, "categories": ["Tracksuits", "Tees & Vests", "Shorts", "Accessories"], "colors": {"Black": "#17181d", "Charcoal": "#3b3f49", "Slate": "#4d5565", "Wine": "#552332", "Olive": "#464a35", "Bone": "#d9d6cb", "Navy": "#1f2a44", "Red": "#c92626", "Blue": "#0240f7", "Brown": "#2c2020", "Ash": "#a8a8a8"}, "products": [{"id": 1, "n": "Courtside Jersey Tank", "c": "Tees & Vests", "t": "tee", "p": 20000, "o": 30000, "cl": ["Black", "Bone"], "s": ["L"], "out": [], "b": "New", "d": "Basketball-cut tank in breathable mesh with contrast trim and the vertical Dark View print. Comes in black or bone.", "stock": 24, "img": "images/388470b95de467a8847243b316eb29a5.jpg", "hidden": false, "featured": true, "imgs": ["images/388470b95de467a8847243b316eb29a5.jpg", "images/48430a445dc0d86b6ab2f6804a3c6d36.jpg"], "ci": {"Black": "images/388470b95de467a8847243b316eb29a5.jpg", "Bone": "images/48430a445dc0d86b6ab2f6804a3c6d36.jpg"}}, {"id": 2, "n": "Racerback Rib Tank", "c": "Tees & Vests", "t": "tee", "p": 20000, "cl": ["Black", "Bone"], "s": ["L"], "b": "Best seller", "d": "Fitted ribbed racerback with the gothic chest print. Stretch cotton that holds its shape.", "o": 0, "out": [], "stock": 18, "img": "images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "hidden": false, "featured": false, "imgs": ["images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "images/0b8f5d275e1335f46669b74f892d9342.jpg"], "ci": {"Black": "images/1084bb5ace88a3f9d06c5a042d7a78c3.jpg", "Bone": "images/0b8f5d275e1335f46669b74f892d9342.jpg"}}, {"id": 3, "n": "Velocity Tracksuit Set", "c": "Tracksuits", "t": "hoodie2", "p": 80000, "cl": ["Red", "Blue"], "s": ["L"], "d": "Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a set; the jacket and pants are also sold separately.", "o": 0, "out": [], "b": "New", "stock": 12, "img": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "hidden": false, "featured": true, "imgs": ["images/650ed3f71654085b91cfaeb291f11fcb.jpg", "images/0b57fa9921352100e897cd3fa3ab0219.jpg"], "ci": {"Red": "images/650ed3f71654085b91cfaeb291f11fcb.jpg", "Blue": "images/0b57fa9921352100e897cd3fa3ab0219.jpg"}}, {"id": 4, "n": "Angelic Chaos Muscle Tee", "c": "Tees & Vests", "t": "tee", "p": 30000, "cl": ["Black"], "s": ["L"], "d": "Sleeveless muscle tee with the cracked-statue and butterfly print across the chest. Heavy cotton, boxy cut.", "o": 0, "out": [], "b": "New", "stock": 60, "img": "/images/f9acf5d4bbdd10d25cc124bc10140301.jpg", "hidden": false, "featured": false, "imgs": ["images/f9acf5d4bbdd10d25cc124bc10140301.jpg"]}, {"id": 5, "n": "Oversized Sweat Shorts", "c": "Shorts", "t": "shorts", "p": 50000, "o": 0, "cl": ["Ash", "Black", "Brown"], "s": ["M", "L"], "b": "", "d": "Heavyweight fleece shorts with a raw hem, deep pockets and the wordmark across the front. Pictured in ash.", "out": [], "stock": 40, "img": "images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg", "hidden": false, "featured": false, "imgs": ["images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg"], "ci": {"Ash": "images/a3ad6c387f5de39051e9f93cd5ba65fb.jpg"}}, {"id": 6, "n": "Aura Flame Tee", "c": "Tees & Vests", "t": "tee", "p": 35000, "cl": ["Black"], "s": ["L"], "out": [], "d": "Oversized black tee with the flame graphic: Wear Mind Set. Drop shoulders, heavy cotton.", "o": 0, "b": "New", "stock": 20, "img": "/images/1d88fb3e4ed5bb5b499a721fbd9abc3b.jpg", "hidden": false, "featured": false, "imgs": ["images/1d88fb3e4ed5bb5b499a721fbd9abc3b.jpg"]}, {"id": 7, "n": "Stone Wings Tee", "c": "Tees & Vests", "t": "tee", "p": 25000, "cl": ["Black"], "s": ["L"], "b": "New", "d": "Oversized tee with the mirrored chrome wings print and star mark. Heavy cotton, relaxed fit.", "o": 0, "out": [], "stock": 16, "img": "/images/f2ca120e031aff3039d1bf2c71c5fb9e.jpg", "hidden": false, "featured": false, "imgs": ["images/f2ca120e031aff3039d1bf2c71c5fb9e.jpg"]}, {"id": 8, "n": "Essential Sweat Shorts", "c": "Shorts", "t": "shorts", "p": 19972, "cl": ["Black"], "s": ["M", "L"], "d": "Clean fleece shorts with the embroidered DV mark. Elastic waist, sits above the knee.", "o": 0, "out": [], "b": "", "stock": 30, "img": "/images/1c8036e2e37185766288a92bb8b87da1.jpg", "hidden": false, "featured": false, "imgs": ["images/1c8036e2e37185766288a92bb8b87da1.jpg"]}, {"id": 9, "n": "Velocity Track Jacket", "c": "Tracksuits", "t": "jacket", "p": 44975, "cl": ["Red", "Blue"], "s": ["L"], "d": "Zip-front track jacket with curved contrast panels, stand collar and zip pockets. Pairs with the Velocity track pants. Pictured in blue.", "o": 0, "out": [], "b": "New", "stock": 14, "img": "images/8e60b6c4f85181e87f2609d081297f7d.jpg", "hidden": false, "featured": false, "imgs": ["images/8e60b6c4f85181e87f2609d081297f7d.jpg"], "ci": {"Blue": "images/8e60b6c4f85181e87f2609d081297f7d.jpg"}}, {"id": 10, "n": "Velocity Track Pants", "c": "Tracksuits", "t": "pants", "p": 45000, "o": 0, "cl": ["Red", "Blue"], "s": ["L"], "b": "New", "d": "Drawcord track pants with zip pockets and cuffed ankles. Pairs with the Velocity track jacket or buy the full set. Pictured in blue.", "out": [], "stock": 8, "img": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg", "hidden": false, "featured": false, "imgs": ["images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"], "ci": {"Blue": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"}}, {"id": 11, "n": "Dark View Cap", "c": "Accessories", "t": "cap", "p": 12000, "cl": ["Black", "Charcoal", "Bone"], "s": ["One size"], "d": "Six-panel cotton cap with an adjustable strap and embroidered mark.", "o": 0, "out": [], "b": "", "stock": 35, "img": "", "hidden": true, "featured": false}, {"id": 12, "n": "Everyday Tote", "c": "Accessories", "t": "tote", "p": 14000, "cl": ["Black", "Bone"], "s": ["One size"], "d": "Thick canvas tote with an inner pocket. Carries a laptop and a change of clothes.", "o": 0, "out": [], "b": "", "stock": 20, "img": "", "hidden": true, "featured": false}], "zones": [{"id": "abuja", "name": "Abuja (FCT)", "fee": 2500, "freeOver": 100000, "eta": "Same or next day", "pod": true, "on": true}]}</script>
 <script id="app">/* ===== Dark View store. Catalogue and settings live in #dv-data and are edited from the admin dashboard. ===== */
 const dataEl=document.getElementById('dv-data');
 let BASE=dataEl.textContent;let D=JSON.parse(BASE);
