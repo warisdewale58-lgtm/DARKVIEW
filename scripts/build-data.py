@@ -22,8 +22,8 @@ with open("data.json") as f:
 
 S = D["settings"]
 S.update({
-    "tagline": "Gwagwalada, Abuja",
-    "bKicker": "New drop",
+    "tagline": "RED MINDSET",
+    "bKicker": "RED MINDSET",
     "bTitle": "Everyday *uniform*.",
     "bBadge": "Pay on delivery",
     "bSub": "Track sets, tees, vests and shorts in heavy cotton. Delivered across Abuja, with pay on delivery available.",
@@ -31,10 +31,10 @@ S.update({
     "bCta2": "View tracksuits",
     "bCta2Q": "velocity",
     "bPerks": "7-day exchange · Sizes S to XXL · Delivered in Abuja",
-    "storyH": "A small studio in Gwagwalada.",
-    "story1": "Dark View is a streetwear label based in Gwagwalada, Abuja. We make tracksuits, tees, vests and shorts in small batches and sell them directly from our studio.",
+    "storyH": "A small studio in Abuja.",
+    "story1": "Dark View is a streetwear label based in Abuja. We make tracksuits, tees, vests and shorts in small batches and sell them directly from our studio.",
     "story2": "Because runs are short, sizes sell out and don't always come back. To see what's next, follow us on Instagram or send us a message on WhatsApp.",
-    "heroEyebrow": "Streetwear from Gwagwalada, Abuja.",
+    "heroEyebrow": "Streetwear from Abuja.",
     "heroTitle": "Tracksuits, tees, vests and shorts.",
     "heroLead": "Made in small batches in Abuja. Delivered across the city, paid by transfer or on delivery.",
     "heroImg": RED_SET,
