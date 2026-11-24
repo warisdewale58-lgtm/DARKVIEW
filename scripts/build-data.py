@@ -22,8 +22,8 @@ with open("data.json") as f:
 
 S = D["settings"]
 S.update({
-    "tagline": "RED MINDSET",
-    "bKicker": "RED MINDSET",
+    "tagline": "WEAR THE MINDSET",
+    "bKicker": "WEAR THE MINDSET",
     "bTitle": "Everyday *uniform*.",
     "bBadge": "Pay on delivery",
     "bSub": "Track sets, tees, vests and shorts in heavy cotton. Delivered across Abuja, with pay on delivery available.",
