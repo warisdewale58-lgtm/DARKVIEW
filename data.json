@@ -132,7 +132,7 @@
    "s": [
     "L"
    ],
-   "d": "Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a set; the jacket and pants are also sold separately.",
+   "d": "Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a complete set.",
    "o": 0,
    "out": [],
    "b": "New",
@@ -275,62 +275,6 @@
    "imgs": [
     "images/1c8036e2e37185766288a92bb8b87da1.jpg"
    ]
-  },
-  {
-   "id": 9,
-   "n": "Velocity Track Jacket",
-   "c": "Tracksuits",
-   "t": "jacket",
-   "p": 44975,
-   "cl": [
-    "Red",
-    "Blue"
-   ],
-   "s": [
-    "L"
-   ],
-   "d": "Zip-front track jacket with curved contrast panels, stand collar and zip pockets. Pairs with the Velocity track pants. Pictured in blue.",
-   "o": 0,
-   "out": [],
-   "b": "New",
-   "stock": 14,
-   "img": "images/8e60b6c4f85181e87f2609d081297f7d.jpg",
-   "hidden": false,
-   "featured": false,
-   "imgs": [
-    "images/8e60b6c4f85181e87f2609d081297f7d.jpg"
-   ],
-   "ci": {
-    "Blue": "images/8e60b6c4f85181e87f2609d081297f7d.jpg"
-   }
-  },
-  {
-   "id": 10,
-   "n": "Velocity Track Pants",
-   "c": "Tracksuits",
-   "t": "pants",
-   "p": 45000,
-   "o": 0,
-   "cl": [
-    "Red",
-    "Blue"
-   ],
-   "s": [
-    "L"
-   ],
-   "b": "New",
-   "d": "Drawcord track pants with zip pockets and cuffed ankles. Pairs with the Velocity track jacket or buy the full set. Pictured in blue.",
-   "out": [],
-   "stock": 8,
-   "img": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg",
-   "hidden": false,
-   "featured": false,
-   "imgs": [
-    "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"
-   ],
-   "ci": {
-    "Blue": "images/b9ee441e635d29665f3be10c5f8d4f7c.jpg"
-   }
   },
   {
    "id": 11,

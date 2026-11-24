@@ -55,7 +55,7 @@ setp(1, n="Courtside Jersey Tank", d="Basketball-cut tank in breathable mesh wit
      img=BLACK_TANK, imgs=[BLACK_TANK, BONE_TANK], ci={"Black": BLACK_TANK, "Bone": BONE_TANK})
 setp(2, n="Racerback Rib Tank", d="Fitted ribbed racerback with the gothic chest print. Stretch cotton that holds its shape.",
      img=BLACK_RACER, imgs=[BLACK_RACER, BONE_RACER], ci={"Black": BLACK_RACER, "Bone": BONE_RACER})
-setp(3, n="Velocity Tracksuit Set", d="Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a set; the jacket and pants are also sold separately.",
+setp(3, n="Velocity Tracksuit Set", d="Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a set.",
      img=RED_SET, imgs=[RED_SET, BLUE_SET], ci={"Red": RED_SET, "Blue": BLUE_SET}, featured=True)
 setp(4, n="Angelic Chaos Muscle Tee", d="Sleeveless muscle tee with the cracked-statue and butterfly print across the chest. Heavy cotton, boxy cut.",
      imgs=[IMG + "f9acf5d4bbdd10d25cc124bc10140301.jpg"])
@@ -71,13 +71,8 @@ setp(7, n="Stone Wings Tee", d="Oversized tee with the mirrored chrome wings pri
      imgs=[IMG + "f2ca120e031aff3039d1bf2c71c5fb9e.jpg"])
 setp(8, n="Essential Sweat Shorts", d="Clean fleece shorts with the embroidered DV mark. Elastic waist, sits above the knee.",
      imgs=[IMG + "1c8036e2e37185766288a92bb8b87da1.jpg"])
-# Jackets/pants: only the blue colourway is photographed so far.
-JACKET_BLUE = IMG + "8e60b6c4f85181e87f2609d081297f7d.jpg"
-PANTS_BLUE = IMG + "b9ee441e635d29665f3be10c5f8d4f7c.jpg"
-setp(9, n="Velocity Track Jacket", d="Zip-front track jacket with curved contrast panels, stand collar and zip pockets. Pairs with the Velocity track pants. Pictured in blue.",
-     img=JACKET_BLUE, imgs=[JACKET_BLUE], ci={"Blue": JACKET_BLUE}, featured=False)
-setp(10, n="Velocity Track Pants", d="Drawcord track pants with zip pockets and cuffed ankles. Pairs with the Velocity track jacket or buy the full set. Pictured in blue.",
-     img=PANTS_BLUE, imgs=[PANTS_BLUE], ci={"Blue": PANTS_BLUE})
+setp(3, n="Velocity Tracksuit Set", d="Two-piece set: zip track jacket and drawcord pants with curved side panels. Sold as a complete set.",
+     img=RED_SET, imgs=[RED_SET, BLUE_SET], ci={"Red": RED_SET, "Blue": BLUE_SET}, featured=True)
 
 for p in D["products"]:
     p["cl"] = [ren.get(c, c) for c in p.get("cl", [])]
