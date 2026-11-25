@@ -1,8 +1,8 @@
 const crypto = require('crypto');
 const { putFile, requireAdmin, handler, httpErr } = require('./_lib');
 
-module.exports = handler(async ({ pw, data }) => {
-  await requireAdmin(pw);
+module.exports = handler(async ({ pw, data }, req) => {
+  await requireAdmin(pw, req);
   if (typeof data !== 'string' || !data) throw httpErr(400, 'bad_input', 'No image received.');
   const buf = Buffer.from(data, 'base64');
   if (buf.length > 3 * 1024 * 1024) throw httpErr(413, 'too_big', 'Photo is too large.');

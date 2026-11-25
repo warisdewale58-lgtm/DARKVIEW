@@ -1,7 +1,7 @@
 const { requireAdmin, handler, httpErr } = require('./_lib');
 
-module.exports = handler(async ({ pw, input }) => {
-  await requireAdmin(pw);
+module.exports = handler(async ({ pw, input }, req) => {
+  await requireAdmin(pw, req);
   if (typeof input !== 'string' || !input.trim()) throw httpErr(400, 'bad_input', 'Nothing to send.');
   if (input.length > 60000) throw httpErr(413, 'too_long', 'That request is too long.');
   const key = process.env.ANTHROPIC_API_KEY;

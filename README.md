@@ -19,15 +19,18 @@ The site works with no configuration at all — the storefront is fully self-con
 Without `GITHUB_TOKEN` / `GITHUB_REPO` the storefront still loads and the admin area still unlocks, but **Publish changes**, **photo upload** and the **AI assistant** answer with a "not configured" / GitHub error instead of saving.
 
 ## How it works
-- Open the site, tap **Admin**, enter the password (default `Darkview2026`; change it first thing in Settings).
+- Open `/admin` (for example `https://darkview-sigma.vercel.app/admin`) or use the **Admin** link in the footer. Enter the current admin password to manage the store.
+- The password was changed from the default. It is stored as a **salted scrypt hash**, not a plain SHA-256, and the browser no longer checks it locally — login is verified on the server against the hash in GitHub.
+- The admin password lock is enforced server-side on **every** API route (`unlock`, `save`, `upload`, `ai`) with a per-IP rate limit: 8 failed attempts in 15 minutes triggers a 30-minute ban.
 - Edit products, prices, delivery, text, or ask the AI. Press **Publish changes**: the change is committed to `data.json` and Vercel redeploys in about a minute.
 - Uploaded photos are committed to `images/` (shrunk to 1400px). They appear after the redeploy.
-- The API checks the admin password on the server for every action.
+- To change the password: **Settings → Admin password**, then press **Publish changes**. New passwords are hashed with scrypt on the server before being saved.
 
 ## Limits
 - Orders and the leaderboard need a database and are not active here (customers still order through WhatsApp / bank transfer).
 - Video upload is not supported; paste a video link instead.
-- `data.json` is public and holds the password hash, so use a long password.
+- `data.json` is public and holds the salted password hash. The hash cannot be reversed, but keep the password long and private.
+- The rate limit is per serverless instance/region (in-memory). For a hard global limit, put the site behind Vercel WAF or Cloudflare.
 
 ## Troubleshooting
 | What you see | Cause | Fix |

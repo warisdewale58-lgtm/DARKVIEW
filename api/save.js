@@ -1,13 +1,14 @@
-const { pwHash, readData, putFile, requireAdmin, handler, httpErr } = require('./_lib');
+const { makeHash, readData, putFile, requireAdmin, handler, httpErr } = require('./_lib');
 
-module.exports = handler(async ({ pw, pwNext, data }) => {
-  const { hash, current } = await requireAdmin(pw);
+module.exports = handler(async (body, req) => {
+  const { hash, current } = await requireAdmin(body.pw, req);
+  const { pwNext, data } = body;
   if (!data || typeof data !== 'object' || !data.settings || !Array.isArray(data.products) || !Array.isArray(data.categories))
     throw httpErr(400, 'bad_data', 'The store data looks wrong, nothing was saved.');
   // The password hash can only change when the old password was proven AND a new one is supplied.
   if (pwNext) {
     if (String(pwNext).length < 8) throw httpErr(400, 'weak_password', 'New password must be at least 8 characters.');
-    data.settings.adminHash = pwHash(pwNext);
+    data.settings.adminHash = makeHash(pwNext);
   } else {
     data.settings.adminHash = hash;
   }
