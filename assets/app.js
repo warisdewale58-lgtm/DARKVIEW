@@ -837,6 +837,28 @@ function syncTop() {
   document.documentElement.style.setProperty('--ann', h + 'px');
 }
 
+function fitWordmark() {
+  var wm = document.querySelector('.home-stage .wordmark');
+  var stage = document.getElementById('heroStage');
+  if (!wm || !stage) return;
+  var avail = stage.clientWidth - 24;
+  if (avail <= 0) return;
+  var txt = wm.textContent || '';
+  var probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font-family:inherit;font-weight:900;letter-spacing:inherit;text-transform:inherit;left:-9999px;top:0';
+  probe.textContent = txt || 'W';
+  wm.appendChild(probe);
+  // measure the wordmark at its current font size
+  var base = probe.getBoundingClientRect().width || 1;
+  var cur = parseFloat(getComputedStyle(wm).fontSize) || 16;
+  // scale so width fits avail
+  var size = base > avail ? cur * (avail / base) : cur;
+  // boundary: wordmark should not be microscopic — clamp range
+  size = Math.min(size, cur);
+  wm.style.fontSize = size + 'px';
+  probe.remove();
+}
+
 function render() {
   var r = route();
   if (r.page === 'admin') { document.title = 'Admin · ' + S.name; adminBoot(); return; }
@@ -894,6 +916,7 @@ function render() {
   initReveal();
   afterRender(r);
   syncTop();
+  fitWordmark();
 }
 
 function claim() {
@@ -1047,7 +1070,7 @@ function quickAdd(id) {
 function bindGlobal() {
   window.addEventListener('resize', syncTop);
   window.addEventListener('orientationchange', syncTop);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTop);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ syncTop(); fitWordmark(); });
 
   document.addEventListener('click', function (e) {
     var t = e.target;

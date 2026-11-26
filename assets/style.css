@@ -112,7 +112,10 @@ body.menu .menubtn i:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
 .home-stage .shoes{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:1;width:auto;max-width:78%;height:auto;max-height:76%;object-fit:contain;mix-blend-mode:multiply;border-radius:8px;-webkit-mask-image:radial-gradient(ellipse 76% 74% at 50% 47%,#000 62%,rgba(0,0,0,.9) 78%,transparent 96%);mask-image:radial-gradient(ellipse 76% 74% at 50% 47%,#000 62%,rgba(0,0,0,.9) 78%,transparent 96%)}
 .home-stage.swap .shoes{animation:shoeIn .55s var(--ease)}
 @keyframes shoeIn{from{opacity:0;transform:translate(-50%,-48%) scale(.985)}to{opacity:1;transform:translate(-50%,-50%)}}
-@media (max-width:640px){.home-stage .shoes{max-width:88%;max-height:64%}}
+@media (max-width:640px){
+  .home-stage .shoes{max-width:54vw;max-height:56%;left:50%;top:53%}
+  .home-stage .wordmark{font-size:clamp(26px,13vw,66px);letter-spacing:-.03em}
+}
 .home-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,22px);padding:clamp(10px,1.6vh,16px) clamp(14px,2.2vw,26px) clamp(12px,1.8vh,18px);border-top:1px solid var(--line);z-index:2;background:var(--card)}
 .ruler{display:none;flex:1;max-width:560px;position:relative;height:22px;align-items:flex-end}
 @media (min-width:900px){.ruler{display:flex}}
@@ -588,3 +591,8 @@ body.menu .mnav{display:block}
 .stat b{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:800;letter-spacing:-.035em;line-height:1.1}
 .stat span{display:block;font-family:var(--fb);font-size:clamp(11.5px,1.1vw,13px);color:var(--mute);margin-top:7px;line-height:1.35}
 @media (max-width:640px){.statrow{grid-template-columns:1fr;gap:clamp(14px,3vw,18px)}.stat{display:flex;align-items:baseline;gap:12px}.stat b{font-size:20px;min-width:72px}.stat span{margin-top:0}}
+
+/* ---------- mobile search styling refinement ---------- */
+.srch-hd .wrap{padding-top:clamp(10px,1.8vw,16px);padding-bottom:clamp(10px,1.8vw,16px)}
+#srchIn{font-size:clamp(17px,5vw,24px)}
+.srch-x{width:clamp(32px,8vw,40px);height:clamp(32px,8vw,40px)}
