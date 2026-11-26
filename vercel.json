@@ -4,11 +4,24 @@
   "buildCommand": null,
   "outputDirectory": null,
   "functions": { "api/*.js": { "maxDuration": 30 } },
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/admin", "destination": "/index.html" }
+    { "source": "/product/:slug", "destination": "/index.html" },
+    { "source": "/shop", "destination": "/index.html" },
+    { "source": "/shop/:cat", "destination": "/index.html" },
+    { "source": "/cart", "destination": "/index.html" },
+    { "source": "/checkout", "destination": "/index.html" },
+    { "source": "/confirm", "destination": "/index.html" },
+    { "source": "/orders", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/help", "destination": "/index.html" }
   ],
   "headers": [
-    { "source": "/data.json", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
-    { "source": "/images/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+    { "source": "/data.json", "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }] },
+    { "source": "/images/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/assets/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
+    { "source": "/admin", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/admin/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
   ]
 }

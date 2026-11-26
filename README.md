@@ -1,43 +1,65 @@
 # Dark View store
 
-Static store (`index.html`, `data.json`, `images/`) plus three Vercel serverless routes in `api/` that power the admin dashboard: the AI assistant, saving changes, and photo upload.
+A real multipage storefront. Every page renders from `data.json`, so a Publish from the admin updates the whole site at once.
 
-The site works with no configuration at all — the storefront is fully self-contained in `index.html`. The environment variables below are only needed for the **Admin** panel (publishing changes, uploading photos, the AI assistant).
+## Pages
+
+| Route | What it is |
+| --- | --- |
+| `/` | Home: featured product hero, new arrivals, shop by category, editorial feature, best sellers |
+| `/shop` | Full catalogue with category tabs and sort |
+| `/shop/tracksuits`, `/shop/tees-and-vests`, `/shop/shorts`, `/shop/accessories` | Category pages |
+| `/product/<name>` | Gallery, colours, sizes, add to cart, details accordions, related pieces |
+| `/cart` | Full cart with quantity controls, promo code and free-delivery progress |
+| `/checkout` | Delivery details, payment choice, order summary |
+| `/confirm` | Order confirmation with the WhatsApp handoff |
+| `/about`, `/help`, `/orders` | Brand story, FAQs, order tracking |
+| `/admin` | Locked admin dashboard. **No link to it anywhere on the public site.** |
+
+## Architecture
+
+- `data.json` is the single source of truth for settings, products, categories, colours and delivery zones.
+- `index.html` is the app shell; `assets/app.js` renders each route, `assets/style.css` is the design system, `assets/admin.js` is the dashboard, and `assets/fonts/` holds the self-hosted fonts.
+- `admin/index.html` + `assets/admin.css` are the `/admin` page, rewriten by `vercel.json`.
+- Publishing writes **only `data.json`** via `/api/save` — no HTML rebuild. Vercel redeploys and every page picks up the change.
+- Serverless routes in `api/` power the admin: `unlock`, `save`, `upload`, `ai`.
 
 ## Set up on Vercel
-1. Import this GitHub repo into Vercel.
-2. On the import screen leave **Framework Preset: Other**, **Build Command** empty, **Output Directory** empty and **Root Directory** empty. `vercel.json` already pins this (`framework: null`, no build, static root), so the site deploys as plain files and `api/*.js` becomes Serverless Functions.
 
-   > If the deployed URL shows `404: NOT_FOUND`, the project is almost always pointed at the wrong directory: check that **Root Directory** is empty (not `.` or a subfolder) and that the project's Production Branch is `main`.
-3. Project → Settings → Environment Variables, add:
-   - `GITHUB_REPO`: `owner/repo` of this repo — `warisdewale58-lgtm/DARKVIEW`
-   - `GITHUB_TOKEN`: a fine-grained token for THIS repo only, permission "Contents: Read and write" (lets the admin save changes and photos)
-   - `ANTHROPIC_API_KEY`: from console.anthropic.com (powers the AI assistant; optional)
-   - optional: `GITHUB_BRANCH` (default `main`), `ANTHROPIC_MODEL` (default `claude-sonnet-4-5`)
+1. Import this GitHub repo into Vercel.
+2. Leave **Framework Preset: Other**, **Build Command** empty, **Output Directory** empty, **Root Directory** empty. `vercel.json` pins this.
+3. Project → Settings → Environment Variables:
+   - `GITHUB_REPO`: `warisdewale58-lgtm/DARKVIEW`
+   - `GITHUB_TOKEN`: fine-grained token for THIS repo, permission **Contents: Read and write**
+   - `ANTHROPIC_API_KEY`: optional, powers the AI assistant
 4. Redeploy once so the variables apply.
 
-Without `GITHUB_TOKEN` / `GITHUB_REPO` the storefront still loads and the admin area still unlocks, but **Publish changes**, **photo upload** and the **AI assistant** answer with a "not configured" / GitHub error instead of saving.
+Without `GITHUB_TOKEN` / `GITHUB_REPO` the storefront still works, but **Publish changes**, **photo upload** and the **AI assistant** answer with a "not configured" error.
 
-## How it works
-- Open `/admin` (for example `https://darkview-sigma.vercel.app/admin`) or use the **Admin** link in the footer. Enter the current admin password to manage the store.
-- The password was changed from the default. It is stored as a **salted scrypt hash**, not a plain SHA-256, and the browser no longer checks it locally — login is verified on the server against the hash in GitHub.
-- The admin password lock is enforced server-side on **every** API route (`unlock`, `save`, `upload`, `ai`) with a per-IP rate limit: 8 failed attempts in 15 minutes triggers a 30-minute ban.
-- Edit products, prices, delivery, text, or ask the AI. Press **Publish changes**: the change is committed to `data.json` and Vercel redeploys in about a minute.
-- Uploaded photos are committed to `images/` (shrunk to 1400px). They appear after the redeploy.
-- To change the password: **Settings → Admin password**, then press **Publish changes**. New passwords are hashed with scrypt on the server before being saved.
+## Admin
+
+- Staff sign in only at `/admin` — there is deliberately no link from the storefront.
+- Password is verified on the server against a **salted scrypt hash** in GitHub; the browser never sees a usable hash.
+- Every admin API route enforces the password plus a **per-IP rate limit** (8 failures / 15 minutes, 30-minute ban).
+- Change the password under **Settings → Admin password**, then press **Publish changes**. The server hashes it with scrypt before saving.
+
+## Cart & checkout
+
+Real cart persisted in `localStorage`: add to cart from any page, mini-bag drawer, quantity steppers with stock guards, remove, promo code (`DARKVIEW10`), free-delivery progress, full cart page, validated checkout, order number and an itemised WhatsApp message. Payment by bank transfer or pay on delivery; delivery is Abuja-only (₦2,500, free over ₦100,000).
 
 ## Limits
-- Orders and the leaderboard need a database and are not active here (customers still order through WhatsApp / bank transfer).
+
+- Orders and the live leaderboard need a database and are not active yet (customers order through WhatsApp / bank transfer).
 - Video upload is not supported; paste a video link instead.
-- `data.json` is public and holds the salted password hash. The hash cannot be reversed, but keep the password long and private.
+- `data.json` is public and holds the salted password hash — it cannot be reversed, but keep the password long and private.
 - The rate limit is per serverless instance/region (in-memory). For a hard global limit, put the site behind Vercel WAF or Cloudflare.
 
 ## Troubleshooting
+
 | What you see | Cause | Fix |
 | --- | --- | --- |
-| `404: NOT_FOUND` on the deployment URL | Wrong Root Directory or a failed build, so no files were published | Settings → General → Root Directory empty; then Redeploy |
+| `404: NOT_FOUND` on the deployment URL | Wrong Root Directory | Settings → General → Root Directory empty; then Redeploy |
 | `GITHUB_TOKEN is not set on Vercel.` | API env var missing | Add it in Settings → Environment Variables, then Redeploy |
-| `GitHub cannot find owner/repo on branch main.` | `GITHUB_REPO` wrong, `GITHUB_BRANCH` not `main`, or the token has no access | Set `GITHUB_REPO=warisdewale58-lgtm/DARKVIEW`, `GITHUB_BRANCH=main`, re-issue the token with Contents: read and write |
-| `GitHub refused the save (401/403)` | Token expired or lacks Contents write | Re-issue the fine-grained token for this repo |
-| `The site changed while you were editing.` | Someone else saved `data.json` first | Reload the page and publish again |
-| AI answers with `The AI service returned 404` | `ANTHROPIC_MODEL` is not a model your key can use | Set `ANTHROPIC_MODEL` to a valid model id, e.g. `claude-sonnet-4-5` |
+| `GitHub cannot find owner/repo on branch main.` | `GITHUB_REPO` wrong or token has no access | Set `GITHUB_REPO=warisdewale58-lgtm/DARKVIEW`, re-issue token with Contents: read/write |
+| `GitHub refused the save (401/403)` | Token expired or lacks write | Re-issue the fine-grained token |
+| `The site changed while you were editing.` | Someone else saved `data.json` first | Reload and publish again |
