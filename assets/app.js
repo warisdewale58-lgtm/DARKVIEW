@@ -182,7 +182,6 @@ function headerHTML(active) {
 }
 function mobileNavHTML() {
   return '<div class="mnav" id="mnav"><div class="wrap">' +
-    navHTML('').replace(/class=/g, 'x').length ? '' : '' +
     '<a class="big" href="/shop">Shop all' + svg.arrowR + '</a>' +
     '<a class="big" href="/shop/tracksuits">Tracksuits' + svg.arrowR + '</a>' +
     '<a class="big" href="/shop/tees-and-vests">Tees &amp; vests' + svg.arrowR + '</a>' +
