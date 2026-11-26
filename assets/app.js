@@ -193,7 +193,7 @@ function mobileNavHTML() {
       '<a href="/cart">Your cart</a><a href="/help#sizes">Size guide</a>' +
     '</div>' +
     '<div class="foot">' +
-      '<a href="https://wa.me/' + esc(S.waNum) + '">WhatsApp ' + esc(S.phone) + '</a>' +
+      '<a href="https://wa.me/' + esc(S.waNum) + '" target="_blank" rel="noopener">WhatsApp ' + esc(S.phone) + '</a>' +
       '<a href="https://instagram.com/' + esc(S.ig) + '">@' + esc(S.ig) + '</a>' +
       '<a href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a>' +
     '</div></div></div>';
@@ -208,7 +208,7 @@ function footerHTML() {
       '<div class="ftr-cols">' +
         '<div class="ftr-col"><h4>Shop</h4><a href="/shop">All pieces</a><a href="/shop/tracksuits">Tracksuits</a><a href="/shop/tees-and-vests">Tees &amp; vests</a><a href="/shop/shorts">Shorts</a></div>' +
         '<div class="ftr-col"><h4>Help</h4><a href="/help">Delivery</a><a href="/help#returns">Returns</a><a href="/help#sizes">Size guide</a><a href="/orders">Track order</a></div>' +
-        '<div class="ftr-col"><h4>Studio</h4><a href="/about">About us</a><a href="https://wa.me/' + esc(S.waNum) + '">WhatsApp</a><a href="https://instagram.com/' + esc(S.ig) + '">Instagram</a><a href="mailto:' + esc(S.email) + '">Email</a></div>' +
+        '<div class="ftr-col"><h4>Studio</h4><a href="/about">About us</a><a href="https://wa.me/' + esc(S.waNum) + '" target="_blank" rel="noopener">WhatsApp</a><a href="https://instagram.com/' + esc(S.ig) + '" target="_blank" rel="noopener">Instagram</a><a href="mailto:' + esc(S.email) + '">Email</a></div>' +
         '<div class="ftr-col"><h4>Visit</h4><a href="/help#contact">' + esc(S.address) + '</a><a href="/help#contact">' + esc(S.hours) + '</a><a href="/help#contact">' + esc(S.phone) + '</a></div>' +
       '</div>' +
     '</div>' +
@@ -243,8 +243,7 @@ function firstWord(n) { return String(n || '').trim().split(/\s+/)[0] || 'DV'; }
 function cardHTML(p) {
   var imgs = gal(p), main = photoFor(p, p.cl[0]), alt = '';
   for (var i = 0; i < imgs.length; i++) if (imgs[i] !== main) { alt = imgs[i]; break; }
-  var o = +p.o || 0;
-  var price = o > +p.p ? '<s>' + naira(o) + '</s>' + naira(p.p) : naira(p.p);
+  var price = naira(p.p);
   var bd = badgeOf(p);
   var sold = +p.stock <= 0;
   return '<a class="pc rv" href="/product/' + slugify(p.n) + '">' +
@@ -652,7 +651,7 @@ function orderHTML(o) {
       '<div><span>Area</span><b>' + esc(o.zone) + '</b></div>' +
       '<div><span>Total</span><b>' + naira(t) + '</b></div>' +
     '</div></div>' +
-    '<a class="btn block" href="https://wa.me/' + esc(S.waNum) + '?text=' + encodeURIComponent(o.msg) + '" style="margin-bottom:10px">Send order on WhatsApp</a>' +
+    '<a class="btn block" href="https://wa.me/' + esc(S.waNum) + '?text=' + encodeURIComponent(o.msg) + '" target="_blank" rel="noopener" style="margin-bottom:10px">Send order on WhatsApp</a>' +
     '<button class="btn soft block" id="copyOrder">Copy order details</button>' +
     '<div class="ordpre-wrap" style="margin-top:14px"><pre class="ordpre" id="orderPre">' + esc(o.msg) + '</pre></div>' +
     '<div style="margin-top:22px"><a class="link" href="/shop">Continue shopping' + svg.arrowR + '</a></div>' +
@@ -677,7 +676,7 @@ function ordersHTML() {
 function aboutHTML() {
   var hero = S.heroImg ? String(S.heroImg).replace(/^\//, '') : '';
   var all = products();
-  return (hero ? '<div class="hero-band"><img src="/' + esc(hero) + '" alt="' + esc(S.heroImgAlt || S.name) + '"><div class="ov"><span class="lbl">' + esc(S.heroEyebrow || 'Abuja, Nigeria') + '</span><h1>' + esc(S.name) + '</h1></div></div>' : '') +
+  return (hero ? '<div class="hero-band"><img src="/' + esc(hero) + '" alt="' + esc(S.heroImgAlt || S.name) + '"><div class="ov"><span class="lbl">' + esc(S.heroEyebrow || 'Abuja, Nigeria') + '</span><div class="hb-name">' + esc(S.name) + '</div></div></div>' : '') +
     '<section class="phd"><div class="wrap">' +
       '<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>About</span></nav>' +
       '<h1 class="display">' + esc(S.storyH || 'Our studio') + '</h1>' +
@@ -704,7 +703,7 @@ function aboutHTML() {
         '<p style="margin-bottom:10px">WhatsApp ' + esc(S.phone) + '</p>' +
         '<p>' + esc(S.email) + '</p>' +
       '</div><div>' +
-        '<a class="btn" href="https://wa.me/' + esc(S.waNum) + '">Message us on WhatsApp</a>' +
+        '<a class="btn" href="https://wa.me/' + esc(S.waNum) + '" target="_blank" rel="noopener">Message us on WhatsApp</a>' +
       '</div></div>' +
     '</div></section>';
 }
@@ -717,7 +716,7 @@ function helpHTML() {
     '<h1 class="display">How can we <span class="halftone">help?</span></h1>' +
     '<p class="lead">Answers to the questions we hear most. Still stuck? Message us and we will reply the same day.</p>' +
     '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">' +
-      '<a class="btn" href="https://wa.me/' + esc(S.waNum) + '">Talk to us on WhatsApp</a>' +
+      '<a class="btn" href="https://wa.me/' + esc(S.waNum) + '" target="_blank" rel="noopener">Talk to us on WhatsApp</a>' +
       '<a class="btn soft" href="mailto:' + esc(S.email) + '">' + esc(S.email) + '</a>' +
     '</div>' +
     '<div class="tabs" style="margin-top:clamp(28px,4vw,40px)"><a href="#delivery" class="on">Delivery</a><a href="#returns">Returns</a><a href="#sizes">Sizes</a><a href="#pay">Payment</a><a href="#contact">Contact</a></div>' +
@@ -812,7 +811,7 @@ function route() {
   if ((m = path.match(/^\/product\/(.+)$/))) return { page: 'product', slug: m[1] };
   if (path === '/cart') return { page: 'cart' };
   if (path === '/checkout') return { page: 'checkout' };
-  if (path === '/orders') return { page: 'orders' };
+  if (path === '/orders' || path === '/track-order') return { page: 'orders' };
   if (path === '/about') return { page: 'about' };
   if (path === '/help') return { page: 'help' };
   if (path === '/confirm') return { page: 'confirm' };
@@ -824,6 +823,12 @@ function notFoundHTML() {
     '<h1 class="display" style="font-size:clamp(38px,9vw,74px)">404</h1>' +
     '<h2>Page not found</h2><p>That page does not exist. The shop is still right here.</p>' +
     '<a class="btn" href="/shop">Shop all pieces</a></div></div></div>';
+}
+
+function syncTop() {
+  var a = document.querySelector('.announce');
+  var h = a && getComputedStyle(a).display !== 'none' ? Math.round(a.getBoundingClientRect().height) : 0;
+  document.documentElement.style.setProperty('--ann', h + 'px');
 }
 
 function render() {
@@ -882,6 +887,7 @@ function render() {
   var dc = $('#dcount'); if (dc) dc.textContent = String(cartCount());
   initReveal();
   afterRender(r);
+  syncTop();
 }
 
 function claim() {
@@ -989,6 +995,10 @@ function quickAdd(id) {
 
 /* ---------- global events ---------- */
 function bindGlobal() {
+  window.addEventListener('resize', syncTop);
+  window.addEventListener('orientationchange', syncTop);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTop);
+
   document.addEventListener('click', function (e) {
     var t = e.target;
     if (!t || !t.closest) return;
