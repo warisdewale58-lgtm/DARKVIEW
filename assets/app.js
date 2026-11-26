@@ -175,7 +175,7 @@ function headerHTML(active) {
     brandHTML() +
     '<nav class="hnav" aria-label="Main">' + navHTML(active) + '</nav>' +
     '<div class="hact">' +
-      '<a class="ico deskl-only" href="/shop" aria-label="Search pieces">' + svg.search + '</a>' +
+      '<button class="ico" id="srchBtn" aria-label="Search pieces">' + svg.search + '</button>' +
       '<a class="ico" href="/cart" aria-label="Open cart" id="bagBtn"><span class="sr">Cart</span>' + svg.bag + '<span class="badge" id="bagN"></span></a>' +
       '<button class="menubtn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>' +
     '</div></div></header>';
@@ -219,6 +219,13 @@ function shellHTML(active, main) {
   return '<a class="skip" href="#main">Skip to content</a>' + announce + headerHTML(active) + mobileNavHTML() +
     '<main id="main">' + main + '</main>' + footerHTML() +
     '<div class="scrim" id="scrim"></div>' +
+    '<div id="srch" class="srch" role="dialog" aria-label="Search pieces" aria-modal="true">' +
+      '<div class="srch-hd"><div class="wrap">' +
+        '<input id="srchIn" type="search" placeholder="Search pieces…" autocomplete="off" autocorrect="off" spellcheck="false">' +
+        '<button id="srchX" class="srch-x" aria-label="Close search">✕</button>' +
+      '</div></div>' +
+      '<div id="srchBd" class="srch-bd"></div>' +
+    '</div>' +
     '<div class="toast" id="toast" role="status" aria-live="polite"></div>';
 }
 
@@ -981,6 +988,50 @@ function closeMenu() {
   closeScrim();
 }
 
+function openSearch() {
+  var s = $('#srch'); if (!s) return;
+  s.classList.add('on');
+  openScrim();
+  document.body.style.overflow = 'hidden';
+  renderSearch('');
+  setTimeout(function () { var i = $('#srchIn'); if (i) { i.focus(); i.select(); } }, 60);
+}
+
+function closeSearch() {
+  var s = $('#srch'); if (!s) return;
+  s.classList.remove('on');
+  closeScrim();
+  document.body.style.overflow = '';
+  var i = $('#srchIn'); if (i) i.value = '';
+  var bd = $('#srchBd'); if (bd) bd.innerHTML = '';
+}
+function srchOpen() { var s = $('#srch'); return !!s && s.classList.contains('on'); }
+
+function renderSearch(q) {
+  var bd = $('#srchBd'); if (!bd) return;
+  q = (q || '').trim().toLowerCase();
+  var all = products();
+  if (!q) {
+    bd.innerHTML = '<div class="srch-tip">Popular pieces</div>' +
+      all.slice(0, 6).map(function (p) {
+        return '<a class="sr" href="/product/' + slugify(p.n) + '">' +
+          (photoFor(p, p.cl[0]) ? '<img src="/' + esc(photoFor(p, p.cl[0])) + '" alt="">' : '') +
+          '<div><b>' + esc(p.n) + '</b><span>' + naira(p.p) + '</span></div></a>';
+      }).join('');
+    return;
+  }
+  var res = all.filter(function (p) {
+    return slugify(p.n).indexOf(q) > -1 || (p.c || '').toLowerCase().indexOf(q) > -1 || (p.n || '').toLowerCase().indexOf(q) > -1;
+  });
+  if (!res.length) { bd.innerHTML = '<div class="srch-empty">No pieces found for "<b>' + esc(q) + '</b>"</div>'; return; }
+  bd.innerHTML = '<div class="srch-tip">' + res.length + ' piece' + (res.length !== 1 ? 's' : '') + '</div>' +
+    res.map(function (p) {
+      return '<a class="sr" href="/product/' + slugify(p.n) + '">' +
+        (photoFor(p, p.cl[0]) ? '<img src="/' + esc(photoFor(p, p.cl[0])) + '" alt="">' : '') +
+        '<div><b>' + esc(p.n) + '</b><span>' + naira(p.p) + '</span></div></a>';
+    }).join('');
+}
+
 function quickAdd(id) {
   var p = byId(id); if (!p) return;
   if (+p.stock <= 0) { toast('Sold out'); return; }
@@ -1049,6 +1100,12 @@ function bindGlobal() {
     var mb = t.closest('#menuBtn');
     if (mb) { e.preventDefault(); if (document.body.classList.contains('menu')) closeMenu(); else openMenu(); return; }
 
+    var sb = t.closest('#srchBtn');
+    if (sb) { e.preventDefault(); openSearch(); return; }
+
+    var sx = t.closest('#srchX');
+    if (sx) { e.preventDefault(); closeSearch(); return; }
+
     var sc = t.closest('#scrim');
     if (sc) { closeDrawer(); closeMenu(); return; }
 
@@ -1078,8 +1135,15 @@ function bindGlobal() {
     }
   });
 
+  document.addEventListener('input', function (e) {
+    if (e.target.id === 'srchIn') renderSearch(e.target.value);
+  });
+
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { closeDrawer(); closeMenu(); closeScrim(); document.body.style.overflow = ''; }
+    if (e.key === 'Escape') { closeDrawer(); closeMenu(); closeSearch(); closeScrim(); document.body.style.overflow = ''; }
+    if (e.key === '/' && !srchOpen() && !/^(input|textarea|select)$/i.test((document.activeElement || {}).tagName || '')) {
+      e.preventDefault(); openSearch();
+    }
   });
 
   window.addEventListener('popstate', function () { render(); });
