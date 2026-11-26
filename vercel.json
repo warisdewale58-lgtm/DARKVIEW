@@ -7,15 +7,16 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/product/:slug", "destination": "/index.html" },
-    { "source": "/shop", "destination": "/index.html" },
-    { "source": "/shop/:cat", "destination": "/index.html" },
-    { "source": "/cart", "destination": "/index.html" },
-    { "source": "/checkout", "destination": "/index.html" },
-    { "source": "/confirm", "destination": "/index.html" },
-    { "source": "/orders", "destination": "/index.html" },
-    { "source": "/about", "destination": "/index.html" },
-    { "source": "/help", "destination": "/index.html" }
+    { "source": "/product/:slug", "destination": "/" },
+    { "source": "/shop", "destination": "/" },
+    { "source": "/shop/:cat", "destination": "/" },
+    { "source": "/cart", "destination": "/" },
+    { "source": "/checkout", "destination": "/" },
+    { "source": "/confirm", "destination": "/" },
+    { "source": "/track-order", "destination": "/" },
+    { "source": "/orders", "destination": "/" },
+    { "source": "/about", "destination": "/" },
+    { "source": "/help", "destination": "/" }
   ],
   "headers": [
     { "source": "/data.json", "headers": [{ "key": "Cache-Control", "value": "no-cache, must-revalidate" }] },
